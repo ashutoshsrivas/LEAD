@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>LEAD Company Report — {{ ctx.company_id }}</title>
+<style>
+  :root{
+    --brand: {{ ctx.brand }};
+    --accent: {{ ctx.accent }};
+    --bg: {{ ctx.bg }};
+    --card: {{ ctx.card }};
+    --muted: {{ ctx.muted }};
+    --q1: #EAF6EE;  /* soft green */
+    --q2: #FFF7E6;  /* amber */
+    --q3: #FDECEC;  /* soft red */
+    --q4: #EAF1FF;  /* soft blue */
+  }
+  body{ font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        background: var(--bg); color:#1b2530; margin:0; padding:32px;}
+  .wrap{ max-width:1100px; margin:0 auto; }
+  .card{ background:var(--card); box-shadow:0 6px 18px rgba(0,0,0,.06);
+         border-radius:14px; padding:20px; margin:16px 0; }
+  h1,h2{ margin:0 0 12px 0; }
+  h1{ font-size:26px; color:var(--brand); }
+  h2{ font-size:20px; color:#2b3d4f; }
+  .header{ display:flex; align-items:center; justify-content:space-between; }
+  .small{ color:#4d5c6b; font-size:13px; }
+  .muted{ color:#6b7c8c; }
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .grid3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+  .table{ width:100%; border-collapse:collapse; margin-top:10px; font-size:14px;}
+  .table th{ text-align:left; background:#f0f4f8; padding:8px; border-bottom:1px solid #e4e9ef; color:#344a60;}
+  .table td{ padding:8px; border-bottom:1px solid #edf2f7; vertical-align:top;}
+  .logo{ height:40px; }
+  .kv{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin:6px 0; color:#526477; font-size:14px;}
+  .q1{ background: var(--q1); }
+  .q2{ background: var(--q2); }
+  .q3{ background: var(--q3); }
+  .q4{ background: var(--q4); }
+  img.chart{ width:100%; height:auto; border-radius:8px; background:#fff;}
+  .eyebrow{ color:#6c7b8a; font-weight:600; text-transform:uppercase; letter-spacing:.04em; font-size:12px; margin-bottom:6px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="card header">
+    <div>
+      <h1>LEAD Company Report</h1>
+      <div class="small">Company: <b>{{ ctx.company_id }}</b></div>
+    </div>
+    <img src="{{ ctx.logo_uri }}" class="logo" alt="logo"/>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="card">
+    <div class="eyebrow">Executive Summary</div>
+    <div class="grid2">
+      <div>
+        <div class="kv"><div>Overall LEAD (mean T)</div><div><b>{{ "%.1f"|format(ctx.overall_mean_T) if ctx.overall_mean_T==ctx.overall_mean_T else "—" }}</b></div></div>
+        <img class="chart" src="{{ ctx.bar_lead_uri }}" alt="LEAD bar (company)"/>
+      </div>
+      <div>
+        <div class="kv"><div>Organizational Guṇa (normalized)</div>
+          <div><b>
+            S {{ "%.1f"|format(ctx.guna_mean_norm.Sattva) }}% ·
+            R {{ "%.1f"|format(ctx.guna_mean_norm.Rajas) }}% ·
+            T {{ "%.1f"|format(ctx.guna_mean_norm.Tamas) }}%
+          </b></div>
+        </div>
+        <div class="grid2">
+          <img class="chart" src="{{ ctx.guna_pie_uri }}" alt="Company Guṇa pie"/>
+          <img class="chart" src="{{ ctx.guna_radar_uri }}" alt="Company S–R–T radar"/>
+        </div>
+        <div class="small" style="margin-top:8px;">
+          <b>Primary Guṇa:</b> {{ ctx.org_guna_primary or "—" }}.
+          {% if ctx.org_guna_metaphor %}<i>{{ ctx.org_guna_metaphor }}</i><br/>{% endif %}
+          {% if ctx.org_guna_tone %}<b>Tone:</b> {{ ctx.org_guna_tone }}<br/>{% endif %}
+          {% if ctx.org_guna_risks %}<b>Risks:</b> {{ ctx.org_guna_risks }}<br/>{% endif %}
+          {% if ctx.org_guna_focus %}<b>Development Focus:</b> {{ ctx.org_guna_focus }}{% endif %}
+        </div>
+        {% if ctx.guna_mix_code %}
+        <div class="small" style="margin-top:6px;">
+          <b>Organizational Guṇa Mix:</b> {{ ctx.guna_mix_code }}<br/>
+          {% if ctx.org_mix_metaphor %}<i>{{ ctx.org_mix_metaphor }}</i><br/>{% endif %}
+          {% if ctx.org_mix_tone %}<b>Tone:</b> {{ ctx.org_mix_tone }}<br/>{% endif %}
+          {% if ctx.org_mix_risks %}<b>Risks:</b> {{ ctx.org_mix_risks }}<br/>{% endif %}
+          {% if ctx.org_mix_focus %}<b>Development Focus:</b> {{ ctx.org_mix_focus }}{% endif %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- PILLARS DETAIL -->
+  <div class="card">
+    <h2>LEAD Pillars — Company</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Pillar</th><th>Mean T</th><th>SD</th>
+          <th>% Strength (≥60)</th><th>% Balanced (46–59)</th><th>% Development (≤45)</th>
+          <th>Meaning</th><th>Recommendation</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in ctx.pillar_rows %}
+        <tr>
+          <td><b>{{ r.pillar }}</b></td>
+          <td>{{ "%.1f"|format(r.mean_T) if r.mean_T==r.mean_T else "—" }}</td>
+          <td>{{ "%.1f"|format(r.sd_T) if r.sd_T==r.sd_T else "—" }}</td>
+          <td>{{ "%.1f"|format(r.pct_strength) if r.pct_strength==r.pct_strength else "—" }}</td>
+          <td>{{ "%.1f"|format(r.pct_balanced) if r.pct_balanced==r.pct_balanced else "—" }}</td>
+          <td>{{ "%.1f"|format(r.pct_development) if r.pct_development==r.pct_development else "—" }}</td>
+          <td>{{ r.meaning }}</td>
+          <td>{{ r.recommendation }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- MATRIX DISTRIBUTIONS -->
+  <div class="card">
+    <h2>Decision Matrices — Quadrant Distribution</h2>
+    <div class="small muted">Bars show % of participants in Q1–Q4 per matrix. Rows include an org-level narrative (from playbook) for the dominant quadrant.</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Matrix</th><th style="width:160px;">Q1/Q2/Q3/Q4 %</th>
+          <th>Dominant Quadrant</th><th>Org Archetype</th><th>Interpretation</th><th>Coach Focus</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for m in ctx.matrix_cards %}
+        {% set qclass = 'q1' if m.dominant=='Q1' else ('q2' if m.dominant=='Q2' else ('q3' if m.dominant=='Q3' else 'q4')) %}
+        <tr class="{{ qclass }}">
+          <td><b>{{ m.matrix }}</b><br/><span class="small muted">n={{ m.n }}</span></td>
+          <td><img class="chart" src="{{ m.bar_uri }}" alt="Q bar"/></td>
+          <td><b>{{ m.dominant }}</b></td>
+          <td>{{ m.org_archetype }}</td>
+          <td>{{ m.org_narrative }}</td>
+          <td>{{ m.coach }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CLUSTERS (optional) -->
+  {% if ctx.cluster %}
+  <div class="card">
+    <h2>Leadership Clusters (Data-Driven)</h2>
+    <div class="small">Chosen <b>k={{ ctx.cluster.k }}</b>, silhouette = {{ "%.3f"|format(ctx.cluster.silhouette) }}</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Cluster</th><th>N</th><th>%</th>
+          <th>L</th><th>E</th><th>A</th><th>D</th>
+          <th>S</th><th>R</th><th>T</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in ctx.cluster.table %}
+        <tr>
+          <td><b>{{ r.cluster }}</b></td>
+          <td>{{ r.n }}</td>
+          <td>{{ "%.1f"|format(r.pct) }}</td>
+          <td>{{ "%.1f"|format(r.L) }}</td>
+          <td>{{ "%.1f"|format(r.E) }}</td>
+          <td>{{ "%.1f"|format(r.A) }}</td>
+          <td>{{ "%.1f"|format(r.D) }}</td>
+          <td>{{ "%.1f"|format(r.Sattva) }}</td>
+          <td>{{ "%.1f"|format(r.Rajas) }}</td>
+          <td>{{ "%.1f"|format(r.Tamas) }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="small muted">Use clusters to tailor interventions (e.g., steward cluster → scale mentorship; executor cluster → ethics anchors).</div>
+  </div>
+  {% endif %}
+
+  <!-- FOOTER -->
+  <div class="small" style="text-align:center; margin-top:8px;">
+    © LEAD Framework — Loka-saṅgraha, Equanimity, Association, Dharma. Confidential.
+  </div>
+
+</div>
+</body>
+</html>

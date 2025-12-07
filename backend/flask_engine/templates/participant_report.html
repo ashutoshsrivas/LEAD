@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>LEAD Participant Report — {{ ctx.participant_id }}</title>
+<style>
+  :root{ --brand: {{ ctx.brand }}; --accent: {{ ctx.accent }}; --bg: {{ ctx.bg }}; --card: {{ ctx.card }}; --muted: {{ ctx.muted }}; }
+  body{ font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color:#1b2530; margin:0; padding:32px;}
+  .wrap{ max-width:900px; margin:0 auto; }
+  .card{ background:var(--card); box-shadow:0 6px 18px rgba(0,0,0,.06); border-radius:14px; padding:20px; margin:16px 0; }
+  h1,h2{ margin:0 0 12px 0; } h1{ font-size:26px; color:var(--brand); } h2{ font-size:20px; color:#2b3d4f; }
+  .header{ display:flex; align-items:center; justify-content:space-between; }
+
+  .pillars{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  .pill{ background:#f4f7fb; border-radius:10px; padding:12px; text-align:center; }
+  .pill .k{ font-weight:600; color:var(--brand); font-size:14px; }
+  .pill .v{ font-size:20px; font-weight:700; }
+
+  .pair{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .kv{ display:flex; align-items:center; justify-content:space-between; margin-top:6px; color:#526477; font-size:14px;}
+  .small{ color:#4d5c6b; font-size:13px; }
+
+  .table{ width:100%; border-collapse:collapse; margin-top:10px; font-size:14px;}
+  .table th{ text-align:left; background:#f0f4f8; padding:8px; border-bottom:1px solid #e4e9ef; color:#344a60;}
+  .table td{ padding:8px; border-bottom:1px solid #edf2f7; vertical-align:top;}
+  .hl{ background:#eef6ff; border-left:4px solid var(--brand); }
+  img.chart{ width:100%; height:auto; border-radius:8px; background:#fff;}
+  img.chart.matrix{ max-width:260px; }
+  img.chart.guna{ max-width:260px; display:block; }
+  .logo{ height:40px; }
+
+  /* matrix layout: two per row */
+  .matrix-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+  .matrix-card{ page-break-inside: avoid; break-inside: avoid; }
+  .matrix-head{ display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:start; }
+  .matrix-card .table{ font-size:12px; }
+
+  /* Guṇa layout */
+  .guna-grid{ display:grid; grid-template-columns: 1fr 300px; gap:16px; align-items:start; }
+  .guna-charts{ display:grid; grid-template-columns: 1fr; gap:8px; }
+  .guna-block{ page-break-inside: avoid; break-inside: avoid; }
+
+  /* Pillar badges */
+  .badge{ display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; font-weight:600; }
+  .badge.strength{ background:#E6F7EE; color:#176B3A; border:1px solid #BFEAD1; }
+  .badge.balanced{ background:#EEF2FF; color:#314CCA; border:1px solid #CCD3FF; }
+  .badge.development{ background:#FFF4E5; color:#A04A00; border:1px solid #FFD5A3; }
+  .badge.intensive{ background:#FDECEC; color:#9B1C1C; border:1px solid #F5B7B7; }
+
+  /* Exec Summary table row colors for matrix summary */
+  .q1-bg{ background:#EAF6EE; }
+  .q2-bg{ background:#FFF7E6; }
+  .q3-bg{ background:#FDECEC; }
+  .q4-bg{ background:#EAF1FF; }
+
+  .appendix{ page-break-before: always; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="card header">
+    <div>
+      <h1>LEAD Participant Report</h1>
+      <div class="small">{{ ctx.participant_id }}</div>
+    </div>
+    <img src="{{ ctx.logo_uri }}" class="logo" alt="logo"/>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="card">
+    <h2>Executive Summary</h2>
+    <p class="small">
+      Overall LEAD Index:
+      <b>{{ "%.1f"|format(ctx.overall_T) if ctx.overall_T==ctx.overall_T else "—" }}</b> (T)
+      {% if ctx.overall_raw==ctx.overall_raw %} · Raw ≈ <b>{{ "%.1f"|format(ctx.overall_raw) }}</b>{% endif %}<br/>
+      Dominant Pillar: <b>{{ ctx.dom_pillar or "—" }}</b>{% if ctx.dom_one_liner %} — {{ ctx.dom_one_liner }}{% endif %}<br/>
+      Leadership Type: <b>{{ ctx.lead_type_title or "—" }}</b>{% if ctx.lead_type_desc %} — {{ ctx.lead_type_desc }}{% endif %}
+    </p>
+
+    {# NEW: Leadership type details if present #}
+    {% if ctx.lead_type_narrative or ctx.lead_type_behaviors or ctx.lead_type_risks or ctx.lead_type_coach %}
+      <table class="table" style="margin-top:6px;">
+        <thead><tr><th>Narrative</th><th>Behaviors</th><th>Risks</th><th>Coach Actions</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>{{ ctx.lead_type_narrative or "" }}</td>
+            <td>{{ ctx.lead_type_behaviors or "" }}</td>
+            <td>{{ ctx.lead_type_risks or "" }}</td>
+            <td>{{ ctx.lead_type_coach or "" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    {% endif %}
+
+    {% if ctx.pillar_lines and ctx.pillar_lines|length > 0 %}
+    <div class="small" style="margin-top:8px;">
+      {% for line in ctx.pillar_lines %}
+        <div style="margin:6px 0;">{{ line | safe }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if (ctx.matrix_strengths and ctx.matrix_strengths|length) or (ctx.matrix_watchouts and ctx.matrix_watchouts|length) %}
+    <div class="small" style="margin-top:10px;">
+      {% if ctx.matrix_strengths and ctx.matrix_strengths|length %}
+        <b>Strengths to build on (Q1):</b>
+        <ul>{% for m in ctx.matrix_strengths %}<li>{{ m | safe }}</li>{% endfor %}</ul>
+      {% endif %}
+      {% if ctx.matrix_watchouts and ctx.matrix_watchouts|length %}
+        <b>Watch-outs (Q2/Q3/Q4):</b>
+        <ul>{% for m in ctx.matrix_watchouts %}<li>{{ m | safe }}</li>{% endfor %}</ul>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if ctx.matrix_summary and ctx.matrix_summary|length %}
+      <div class="small" style="margin-top:8px;"><i>Legend — Q1 green, Q2 amber, Q3 red, Q4 blue.</i></div>
+      <table class="table" style="margin-top:6px;">
+        <thead><tr><th>Matrix</th><th>Quadrant</th><th>Archetype</th><th>Coach Focus</th></tr></thead>
+        <tbody>
+          {% for r in ctx.matrix_summary %}
+            {% set qcls = 'q1-bg' if r.qcode=='Q1' else ('q2-bg' if r.qcode=='Q2' else ('q3-bg' if r.qcode=='Q3' else 'q4-bg')) %}
+            <tr class="{{ qcls }}">
+              <td>{{ r.matrix }}</td>
+              <td>{{ r.quadrant }}</td>
+              <td>{{ r.archetype }}</td>
+              <td>{{ r.coach }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+
+    {% if ctx.coach_line %}
+      <div class="small hl" style="margin-top:10px; padding:8px;"><b>Coach note:</b> {{ ctx.coach_line }}</div>
+    {% endif %}
+  </div>
+
+  <!-- LEAD PILLARS -->
+  <div class="card">
+    <h2>Your Leadership Foundations</h2>
+    <div class="pillars">
+      {% for p in ctx.pillars %}
+        <div class="pill">
+          <div class="k">{{ p.pillar }}</div>
+          <div class="v">{{ "%.1f"|format(p.T) if p.T==p.T else "—" }}</div>
+          {% if p.badge_label and p.badge_class %}
+            <div style="margin-top:6px;"><span class="badge {{ p.badge_class }}">{{ p.badge_label }}</span></div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    <img class="chart" style="margin-top:10px;" src="{{ ctx.lead_bar_img }}" alt="LEAD bar"/>
+
+    {% if ctx.pillar_insights and ctx.pillar_insights|length %}
+      <table class="table" style="margin-top:8px;">
+        <thead><tr><th>Pillar</th><th>Band</th><th>Key Focus</th></tr></thead>
+        <tbody>
+          {% for r in ctx.pillar_insights %}
+            <tr>
+              <td><b>{{ r.pillar }}</b></td>
+              <td>{{ r.band }}</td>
+              <td>{{ r.line }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+
+    <div class="small" style="margin-top:10px;">{{ ctx.lead_pillars_blurb | safe }}</div>
+  </div>
+
+  <!-- GUNA PROFILE -->
+  <div class="card guna-block">
+    <h2>Your Inner Energy (Guṇa)</h2>
+    <div class="guna-grid">
+      <div>
+        <div class="kv"><div>Dominant Guṇa</div><div><b>{{ ctx.guna_dominant or "—" }}</b></div></div>
+        <div class="kv">
+          <div>Normalized %</div>
+          <div>
+            <b>
+              S {{ "%.1f"|format(ctx.guna_norm_pct.Sattva) if ctx.guna_norm_pct and ctx.guna_norm_pct.Sattva==ctx.guna_norm_pct.Sattva else "—" }}% ·
+              R {{ "%.1f"|format(ctx.guna_norm_pct.Rajas)  if ctx.guna_norm_pct and ctx.guna_norm_pct.Rajas==ctx.guna_norm_pct.Rajas else "—" }}% ·
+              T {{ "%.1f"|format(ctx.guna_norm_pct.Tamas)  if ctx.guna_norm_pct and ctx.guna_norm_pct.Tamas==ctx.guna_norm_pct.Tamas else "—" }}%
+            </b>
+          </div>
+        </div>
+        <div class="kv">
+          <div>T-scores</div>
+          <div>
+            <b>
+              S {{ "%.1f"|format(ctx.guna_T.Sattva) if ctx.guna_T and ctx.guna_T.Sattva==ctx.guna_T.Sattva else "—" }} ·
+              R {{ "%.1f"|format(ctx.guna_T.Rajas)  if ctx.guna_T and ctx.guna_T.Rajas==ctx.guna_T.Rajas else "—" }} ·
+              T {{ "%.1f"|format(ctx.guna_T.Tamas)  if ctx.guna_T and ctx.guna_T.Tamas==ctx.guna_T.Tamas else "—" }}
+            </b>
+          </div>
+        </div>
+        {% if ctx.guna_pb and ctx.guna_pb.mood %}
+        <div class="small" style="margin-top:6px;">
+          <b>Mood:</b> {{ ctx.guna_pb.mood }}<br/>
+          <b>Shadow:</b> {{ ctx.guna_pb.shadow }}<br/>
+          <b>Balance:</b> {{ ctx.guna_pb.balance }}
+        </div>
+        {% endif %}
+        {% if ctx.guna_metaphor %}
+          <div class="small" style="margin-top:6px;"><i>{{ ctx.guna_metaphor }}</i></div>
+        {% endif %}
+        <div class="small" style="margin-top:8px;">{{ ctx.guna_blurb | safe }}</div>
+      </div>
+
+      <div class="guna-charts">
+        <img class="chart guna" src="{{ ctx.guna_img }}" alt="Guṇa pie"/>
+        <img class="chart guna" src="{{ ctx.guna_radar_img }}" alt="Guṇa radar"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- MATRICES: two-per-row grid -->
+  <div class="matrix-grid">
+    {% for m in ctx.matrices %}
+    <div class="card matrix-card">
+      <h2>{{ m.name }}</h2>
+      <div class="matrix-head">
+        <img class="chart matrix" src="{{ m.chart_uri }}" alt="quadrant"/>
+        <div>
+          <div class="kv"><div>Quadrant</div><div><b>{{ m.quadrant }}</b></div></div>
+          <div class="kv"><div>X</div><div><b>{{ "%.1f"|format(m.x) if m.x==m.x else "—" }}</b></div></div>
+          <div class="kv"><div>Y</div><div><b>{{ "%.1f"|format(m.y) if m.y==m.y else "—" }}</b></div></div>
+          <div class="small" style="margin-top:8px;">
+            <b>Quadrant Guide:</b> Q1 = High X/High Y · Q2 = Low X/High Y · Q3 = Low/Low · Q4 = High/Low
+          </div>
+        </div>
+      </div>
+      <table class="table">
+        <thead>
+          <tr><th>Quadrant</th><th>Narrative</th><th>Signals</th><th>Coach Actions</th></tr>
+        </thead>
+        <tbody>
+          {% for r in m.rows %}
+          <tr class="{{ 'hl' if r.highlight else '' }}">
+            <td><b>{{ r.quadrant }}</b></td>
+            <td>{{ r.narrative }}</td>
+            <td>{{ r.signals }}</td>
+            <td>{{ r.coach }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- APPENDIX -->
+  <div class="card appendix">
+    <h2>Appendix</h2>
+    <p class="small">
+      <b>About the Framework & Book</b><br/>
+      The LEAD framework (Loka-saṅgraha, Equanimity, Association, Dharma) is a leadership model inspired by Indian Knowledge Systems (IKS).
+      It emphasizes ethical clarity, self-mastery, right association, and service to the collective. A concise introduction appears in the book
+      <i>LEAD: A Leadership Framework from Indian Knowledge System</i>. For the retail listing, see
+      <a href="https://www.amazon.in/dp/937335308X">amazon.in/dp/937335308X</a>.
+    </p>
+
+    <p class="small">
+      <b>Purpose of this Assessment</b><br/>
+      This assessment offers a structured mirror for leaders and teams. It summarizes patterns across six 2×2 matrices
+      (e.g., Selflessness vs. Clarity; Dharma vs. Desire) and a Guṇa profile (Sattva–Rajas–Tamas), then maps results to
+      the LEAD pillars. The aim is practical growth: clearer decisions, ethical steadiness, better associations, and
+      outcomes aligned with long-term welfare.
+    </p>
+
+    <p class="small">
+      <b>Methodology (High Level)</b><br/>
+      Items use Likert-type responses. Each item is normalized to a 0–100 scale (with reverse-scoring where applicable) and
+      aggregated into traits, matrices, Guṇa, and pillars. For comparability, we express results in T-scores
+      (mean&nbsp;50, SD&nbsp;10) relative to a reference dataset; raw pillar and Guṇa percentages are also reported for intuitive reading.
+      Quadrant narratives and coach actions come from the LEAD playbook. We monitor reliability and refine norms through ongoing
+      calibration; interpretations are directional and best used with coaching and organizational context.
+    </p>
+
+    <p class="small">
+      <b>Good Use</b><br/>
+      Treat results as starting points for dialogue, not labels. Re-take after meaningful development
+      intervals (e.g., 3–6 months) to observe trendlines rather than single scores.
+    </p>
+  </div>
+
+  <div class="small" style="text-align:center; margin-top:8px;">
+    © LEAD Framework — Loka-saṅgraha, Equanimity, Association, Dharma. Confidential.
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,2290 @@
+{
+  "generated_at": "2025-12-07T09:37:21.414997+00:00",
+  "trait_T": [
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Application",
+      "score": 80.55555555555556,
+      "n_items": 9,
+      "mean_norm": 67.36111111111111,
+      "sd_norm": 9.12266978775607,
+      "T": 64.46335859065432
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Association",
+      "score": 61.111111111111114,
+      "n_items": 9,
+      "mean_norm": 63.88888888888889,
+      "sd_norm": 9.272477337736447,
+      "T": 47.00427655242361
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Clarity",
+      "score": 94.44444444444444,
+      "n_items": 9,
+      "mean_norm": 72.91666666666667,
+      "sd_norm": 10.260066249085636,
+      "T": 70.98210406750181
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Collective",
+      "score": 50.0,
+      "n_items": 9,
+      "mean_norm": 63.54166666666667,
+      "sd_norm": 12.372586968344239,
+      "T": 39.05510488524868
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Desire",
+      "score": 58.333333333333336,
+      "n_items": 9,
+      "mean_norm": 70.48611111111111,
+      "sd_norm": 11.590596672170557,
+      "T": 39.51496793348263
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Dharma",
+      "score": 69.44444444444444,
+      "n_items": 9,
+      "mean_norm": 73.95833333333333,
+      "sd_norm": 12.238220049597212,
+      "T": 46.31164591697512
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Fear",
+      "score": 47.22222222222222,
+      "n_items": 9,
+      "mean_norm": 46.52777777777778,
+      "sd_norm": 9.478230882933483,
+      "T": 50.732673062116326
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Knowledge",
+      "score": 58.333333333333336,
+      "n_items": 9,
+      "mean_norm": 65.27777777777777,
+      "sd_norm": 14.69861839480328,
+      "T": 45.27544408738466
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Openness",
+      "score": 44.44444444444444,
+      "n_items": 9,
+      "mean_norm": 54.86111111111111,
+      "sd_norm": 12.664264600978528,
+      "T": 41.77475598080776
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Rajas",
+      "score": 60.714285714285715,
+      "n_items": 7,
+      "mean_norm": 70.98214285714286,
+      "sd_norm": 13.823847544477065,
+      "T": 42.5723593884979
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Responsibility",
+      "score": 36.111111111111114,
+      "n_items": 9,
+      "mean_norm": 45.138888888888886,
+      "sd_norm": 14.604576364744403,
+      "T": 43.81852814329424
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Sattva",
+      "score": 100.0,
+      "n_items": 7,
+      "mean_norm": 85.26785714285714,
+      "sd_norm": 14.963208036787652,
+      "T": 59.845577780462115
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Selflessness",
+      "score": 72.22222222222223,
+      "n_items": 9,
+      "mean_norm": 77.08333333333333,
+      "sd_norm": 12.922745625344271,
+      "T": 46.23832949123643
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Tamas",
+      "score": 89.28571428571429,
+      "n_items": 7,
+      "mean_norm": 81.69642857142857,
+      "sd_norm": 24.922437991735382,
+      "T": 53.04516184042766
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Time",
+      "score": 55.55555555555556,
+      "n_items": 9,
+      "mean_norm": 60.41666666666667,
+      "sd_norm": 13.342424149567005,
+      "T": 46.35665074305941
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Application",
+      "score": 69.44444444444444,
+      "n_items": 9,
+      "mean_norm": 67.36111111111111,
+      "sd_norm": 9.12266978775607,
+      "T": 52.28368819852436
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Association",
+      "score": 77.77777777777777,
+      "n_items": 9,
+      "mean_norm": 63.88888888888889,
+      "sd_norm": 9.272477337736447,
+      "T": 64.97861723788193
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Clarity",
+      "score": 72.22222222222223,
+      "n_items": 9,
+      "mean_norm": 72.91666666666667,
+      "sd_norm": 10.260066249085636,
+      "T": 49.3231579333064
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Collective",
+      "score": 66.66666666666667,
+      "n_items": 9,
+      "mean_norm": 63.54166666666667,
+      "sd_norm": 12.372586968344239,
+      "T": 52.525745026481076
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Desire",
+      "score": 80.55555555555556,
+      "n_items": 9,
+      "mean_norm": 70.48611111111111,
+      "sd_norm": 11.590596672170557,
+      "T": 58.68759799797153
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Dharma",
+      "score": 83.33333333333333,
+      "n_items": 9,
+      "mean_norm": 73.95833333333333,
+      "sd_norm": 12.238220049597212,
+      "T": 57.660427710897835
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Fear",
+      "score": 33.333333333333336,
+      "n_items": 9,
+      "mean_norm": 46.52777777777778,
+      "sd_norm": 9.478230882933483,
+      "T": 36.07921181978973
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Knowledge",
+      "score": 61.111111111111114,
+      "n_items": 9,
+      "mean_norm": 65.27777777777777,
+      "sd_norm": 14.69861839480328,
+      "T": 47.1652664524308
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Openness",
+      "score": 63.888888888888886,
+      "n_items": 9,
+      "mean_norm": 54.86111111111111,
+      "sd_norm": 12.664264600978528,
+      "T": 57.12854481663328
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Rajas",
+      "score": 96.42857142857143,
+      "n_items": 7,
+      "mean_norm": 70.98214285714286,
+      "sd_norm": 13.823847544477065,
+      "T": 68.40763108067912
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Responsibility",
+      "score": 36.111111111111114,
+      "n_items": 9,
+      "mean_norm": 45.138888888888886,
+      "sd_norm": 14.604576364744403,
+      "T": 43.81852814329424
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Sattva",
+      "score": 100.0,
+      "n_items": 7,
+      "mean_norm": 85.26785714285714,
+      "sd_norm": 14.963208036787652,
+      "T": 59.845577780462115
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Selflessness",
+      "score": 77.77777777777777,
+      "n_items": 9,
+      "mean_norm": 77.08333333333333,
+      "sd_norm": 12.922745625344271,
+      "T": 50.537381501251936
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Tamas",
+      "score": 96.42857142857143,
+      "n_items": 7,
+      "mean_norm": 81.69642857142857,
+      "sd_norm": 24.922437991735382,
+      "T": 55.911196513771344
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Time",
+      "score": 44.44444444444444,
+      "n_items": 9,
+      "mean_norm": 60.41666666666667,
+      "sd_norm": 13.342424149567005,
+      "T": 38.02899529862378
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Application",
+      "score": 55.55555555555556,
+      "n_items": 9,
+      "mean_norm": 67.36111111111111,
+      "sd_norm": 9.12266978775607,
+      "T": 37.05910020836192
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Association",
+      "score": 58.333333333333336,
+      "n_items": 9,
+      "mean_norm": 63.88888888888889,
+      "sd_norm": 9.272477337736447,
+      "T": 44.008553104847216
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Clarity",
+      "score": 61.111111111111114,
+      "n_items": 9,
+      "mean_norm": 72.91666666666667,
+      "sd_norm": 10.260066249085636,
+      "T": 38.49368486620868
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Collective",
+      "score": 63.888888888888886,
+      "n_items": 9,
+      "mean_norm": 63.54166666666667,
+      "sd_norm": 12.372586968344239,
+      "T": 50.28063833627567
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Desire",
+      "score": 63.888888888888886,
+      "n_items": 9,
+      "mean_norm": 70.48611111111111,
+      "sd_norm": 11.590596672170557,
+      "T": 44.30812544960485
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Dharma",
+      "score": 83.33333333333333,
+      "n_items": 9,
+      "mean_norm": 73.95833333333333,
+      "sd_norm": 12.238220049597212,
+      "T": 57.660427710897835
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Fear",
+      "score": 55.55555555555556,
+      "n_items": 9,
+      "mean_norm": 46.52777777777778,
+      "sd_norm": 9.478230882933483,
+      "T": 59.52474980751229
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Knowledge",
+      "score": 69.44444444444444,
+      "n_items": 9,
+      "mean_norm": 65.27777777777777,
+      "sd_norm": 14.69861839480328,
+      "T": 52.83473354756921
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Openness",
+      "score": 77.77777777777777,
+      "n_items": 9,
+      "mean_norm": 54.86111111111111,
+      "sd_norm": 12.664264600978528,
+      "T": 68.09553684222293
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Rajas",
+      "score": 64.28571428571429,
+      "n_items": 7,
+      "mean_norm": 70.98214285714286,
+      "sd_norm": 13.823847544477065,
+      "T": 45.15588655771602
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Responsibility",
+      "score": 58.333333333333336,
+      "n_items": 9,
+      "mean_norm": 45.138888888888886,
+      "sd_norm": 14.604576364744403,
+      "T": 59.03445886749305
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Sattva",
+      "score": 75.0,
+      "n_items": 7,
+      "mean_norm": 85.26785714285714,
+      "sd_norm": 14.963208036787652,
+      "T": 43.137930637859746
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Selflessness",
+      "score": 86.11111111111111,
+      "n_items": 9,
+      "mean_norm": 77.08333333333333,
+      "sd_norm": 12.922745625344271,
+      "T": 56.98595951627522
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Tamas",
+      "score": 89.28571428571429,
+      "n_items": 7,
+      "mean_norm": 81.69642857142857,
+      "sd_norm": 24.922437991735382,
+      "T": 53.04516184042766
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Time",
+      "score": 75.0,
+      "n_items": 9,
+      "mean_norm": 60.41666666666667,
+      "sd_norm": 13.342424149567005,
+      "T": 60.93004777082176
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Application",
+      "score": 72.22222222222223,
+      "n_items": 9,
+      "mean_norm": 67.36111111111111,
+      "sd_norm": 9.12266978775607,
+      "T": 55.32860579655686
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Association",
+      "score": 72.22222222222223,
+      "n_items": 9,
+      "mean_norm": 63.88888888888889,
+      "sd_norm": 9.272477337736447,
+      "T": 58.98717034272917
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Clarity",
+      "score": 63.888888888888886,
+      "n_items": 9,
+      "mean_norm": 72.91666666666667,
+      "sd_norm": 10.260066249085636,
+      "T": 41.201053132983105
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Collective",
+      "score": 75.0,
+      "n_items": 9,
+      "mean_norm": 63.54166666666667,
+      "sd_norm": 12.372586968344239,
+      "T": 59.261065097097266
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Desire",
+      "score": 83.33333333333333,
+      "n_items": 9,
+      "mean_norm": 70.48611111111111,
+      "sd_norm": 11.590596672170557,
+      "T": 61.08417675603264
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Dharma",
+      "score": 83.33333333333333,
+      "n_items": 9,
+      "mean_norm": 73.95833333333333,
+      "sd_norm": 12.238220049597212,
+      "T": 57.660427710897835
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Fear",
+      "score": 41.666666666666664,
+      "n_items": 9,
+      "mean_norm": 46.52777777777778,
+      "sd_norm": 9.478230882933483,
+      "T": 44.87128856518569
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Knowledge",
+      "score": 63.888888888888886,
+      "n_items": 9,
+      "mean_norm": 65.27777777777777,
+      "sd_norm": 14.69861839480328,
+      "T": 49.055088817476936
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Openness",
+      "score": 61.111111111111114,
+      "n_items": 9,
+      "mean_norm": 54.86111111111111,
+      "sd_norm": 12.664264600978528,
+      "T": 54.93514641151535
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Rajas",
+      "score": 67.85714285714286,
+      "n_items": 7,
+      "mean_norm": 70.98214285714286,
+      "sd_norm": 13.823847544477065,
+      "T": 47.739413726934146
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Responsibility",
+      "score": 47.22222222222222,
+      "n_items": 9,
+      "mean_norm": 45.138888888888886,
+      "sd_norm": 14.604576364744403,
+      "T": 51.426493505393644
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Sattva",
+      "score": 78.57142857142857,
+      "n_items": 7,
+      "mean_norm": 85.26785714285714,
+      "sd_norm": 14.963208036787652,
+      "T": 45.52473737251722
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Selflessness",
+      "score": 80.55555555555556,
+      "n_items": 9,
+      "mean_norm": 77.08333333333333,
+      "sd_norm": 12.922745625344271,
+      "T": 52.68690750625971
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Tamas",
+      "score": 67.85714285714286,
+      "n_items": 7,
+      "mean_norm": 81.69642857142857,
+      "sd_norm": 24.922437991735382,
+      "T": 44.44705782039662
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Time",
+      "score": 77.77777777777777,
+      "n_items": 9,
+      "mean_norm": 60.41666666666667,
+      "sd_norm": 13.342424149567005,
+      "T": 63.01196163193067
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Application",
+      "score": 58.333333333333336,
+      "n_items": 9,
+      "mean_norm": 67.36111111111111,
+      "sd_norm": 9.12266978775607,
+      "T": 40.10401780639441
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Association",
+      "score": 50.0,
+      "n_items": 9,
+      "mean_norm": 63.88888888888889,
+      "sd_norm": 9.272477337736447,
+      "T": 35.021382762118044
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Clarity",
+      "score": 69.44444444444444,
+      "n_items": 9,
+      "mean_norm": 72.91666666666667,
+      "sd_norm": 10.260066249085636,
+      "T": 46.61578966653196
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Collective",
+      "score": 52.77777777777778,
+      "n_items": 9,
+      "mean_norm": 63.54166666666667,
+      "sd_norm": 12.372586968344239,
+      "T": 41.30021157545408
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Desire",
+      "score": 52.77777777777778,
+      "n_items": 9,
+      "mean_norm": 70.48611111111111,
+      "sd_norm": 11.590596672170557,
+      "T": 34.7218104173604
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Dharma",
+      "score": 52.77777777777778,
+      "n_items": 9,
+      "mean_norm": 73.95833333333333,
+      "sd_norm": 12.238220049597212,
+      "T": 32.69310776426785
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Fear",
+      "score": 55.55555555555556,
+      "n_items": 9,
+      "mean_norm": 46.52777777777778,
+      "sd_norm": 9.478230882933483,
+      "T": 59.52474980751229
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Knowledge",
+      "score": 63.888888888888886,
+      "n_items": 9,
+      "mean_norm": 65.27777777777777,
+      "sd_norm": 14.69861839480328,
+      "T": 49.055088817476936
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Openness",
+      "score": 44.44444444444444,
+      "n_items": 9,
+      "mean_norm": 54.86111111111111,
+      "sd_norm": 12.664264600978528,
+      "T": 41.77475598080776
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Rajas",
+      "score": 57.142857142857146,
+      "n_items": 7,
+      "mean_norm": 70.98214285714286,
+      "sd_norm": 13.823847544477065,
+      "T": 39.98883221927978
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Responsibility",
+      "score": 50.0,
+      "n_items": 9,
+      "mean_norm": 45.138888888888886,
+      "sd_norm": 14.604576364744403,
+      "T": 53.328484845918496
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Sattva",
+      "score": 60.714285714285715,
+      "n_items": 7,
+      "mean_norm": 85.26785714285714,
+      "sd_norm": 14.963208036787652,
+      "T": 33.59070369922982
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Selflessness",
+      "score": 58.333333333333336,
+      "n_items": 9,
+      "mean_norm": 77.08333333333333,
+      "sd_norm": 12.922745625344271,
+      "T": 35.490699466197626
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Tamas",
+      "score": 96.42857142857143,
+      "n_items": 7,
+      "mean_norm": 81.69642857142857,
+      "sd_norm": 24.922437991735382,
+      "T": 55.911196513771344
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Time",
+      "score": 41.666666666666664,
+      "n_items": 9,
+      "mean_norm": 60.41666666666667,
+      "sd_norm": 13.342424149567005,
+      "T": 35.94708143751487
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Application",
+      "score": 61.111111111111114,
+      "n_items": 9,
+      "mean_norm": 67.36111111111111,
+      "sd_norm": 9.12266978775607,
+      "T": 43.1489354044269
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Association",
+      "score": 58.333333333333336,
+      "n_items": 9,
+      "mean_norm": 63.88888888888889,
+      "sd_norm": 9.272477337736447,
+      "T": 44.008553104847216
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Clarity",
+      "score": 75.0,
+      "n_items": 9,
+      "mean_norm": 72.91666666666667,
+      "sd_norm": 10.260066249085636,
+      "T": 52.030526200080814
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Collective",
+      "score": 80.55555555555556,
+      "n_items": 9,
+      "mean_norm": 63.54166666666667,
+      "sd_norm": 12.372586968344239,
+      "T": 63.751278477508066
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Desire",
+      "score": 72.22222222222223,
+      "n_items": 9,
+      "mean_norm": 70.48611111111111,
+      "sd_norm": 11.590596672170557,
+      "T": 51.4978617237882
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Dharma",
+      "score": 86.11111111111111,
+      "n_items": 9,
+      "mean_norm": 73.95833333333333,
+      "sd_norm": 12.238220049597212,
+      "T": 59.93018406968239
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Fear",
+      "score": 33.333333333333336,
+      "n_items": 9,
+      "mean_norm": 46.52777777777778,
+      "sd_norm": 9.478230882933483,
+      "T": 36.07921181978973
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Knowledge",
+      "score": 41.666666666666664,
+      "n_items": 9,
+      "mean_norm": 65.27777777777777,
+      "sd_norm": 14.69861839480328,
+      "T": 33.93650989710784
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Openness",
+      "score": 55.55555555555556,
+      "n_items": 9,
+      "mean_norm": 54.86111111111111,
+      "sd_norm": 12.664264600978528,
+      "T": 50.54834960127949
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Rajas",
+      "score": 85.71428571428571,
+      "n_items": 7,
+      "mean_norm": 70.98214285714286,
+      "sd_norm": 13.823847544477065,
+      "T": 60.65704957302474
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Responsibility",
+      "score": 47.22222222222222,
+      "n_items": 9,
+      "mean_norm": 45.138888888888886,
+      "sd_norm": 14.604576364744403,
+      "T": 51.426493505393644
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Sattva",
+      "score": 92.85714285714286,
+      "n_items": 7,
+      "mean_norm": 85.26785714285714,
+      "sd_norm": 14.963208036787652,
+      "T": 55.071964311147156
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Selflessness",
+      "score": 77.77777777777777,
+      "n_items": 9,
+      "mean_norm": 77.08333333333333,
+      "sd_norm": 12.922745625344271,
+      "T": 50.537381501251936
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Tamas",
+      "score": 89.28571428571429,
+      "n_items": 7,
+      "mean_norm": 81.69642857142857,
+      "sd_norm": 24.922437991735382,
+      "T": 53.04516184042766
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Time",
+      "score": 66.66666666666667,
+      "n_items": 9,
+      "mean_norm": 60.41666666666667,
+      "sd_norm": 13.342424149567005,
+      "T": 54.68430618749504
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Application",
+      "score": 77.77777777777777,
+      "n_items": 9,
+      "mean_norm": 67.36111111111111,
+      "sd_norm": 9.12266978775607,
+      "T": 61.418440992621825
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Association",
+      "score": 72.22222222222223,
+      "n_items": 9,
+      "mean_norm": 63.88888888888889,
+      "sd_norm": 9.272477337736447,
+      "T": 58.98717034272917
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Clarity",
+      "score": 77.77777777777777,
+      "n_items": 9,
+      "mean_norm": 72.91666666666667,
+      "sd_norm": 10.260066249085636,
+      "T": 54.73789446685524
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Collective",
+      "score": 47.22222222222222,
+      "n_items": 9,
+      "mean_norm": 63.54166666666667,
+      "sd_norm": 12.372586968344239,
+      "T": 36.80999819504328
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Desire",
+      "score": 83.33333333333333,
+      "n_items": 9,
+      "mean_norm": 70.48611111111111,
+      "sd_norm": 11.590596672170557,
+      "T": 61.08417675603264
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Dharma",
+      "score": 61.111111111111114,
+      "n_items": 9,
+      "mean_norm": 73.95833333333333,
+      "sd_norm": 12.238220049597212,
+      "T": 39.50237684062149
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Fear",
+      "score": 50.0,
+      "n_items": 9,
+      "mean_norm": 46.52777777777778,
+      "sd_norm": 9.478230882933483,
+      "T": 53.66336531058165
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Knowledge",
+      "score": 94.44444444444444,
+      "n_items": 9,
+      "mean_norm": 65.27777777777777,
+      "sd_norm": 14.69861839480328,
+      "T": 69.84313483298443
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Openness",
+      "score": 38.888888888888886,
+      "n_items": 9,
+      "mean_norm": 54.86111111111111,
+      "sd_norm": 12.664264600978528,
+      "T": 37.3879591705719
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Rajas",
+      "score": 75.0,
+      "n_items": 7,
+      "mean_norm": 70.98214285714286,
+      "sd_norm": 13.823847544477065,
+      "T": 52.90646806537038
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Responsibility",
+      "score": 19.444444444444443,
+      "n_items": 9,
+      "mean_norm": 45.138888888888886,
+      "sd_norm": 14.604576364744403,
+      "T": 32.40658010014512
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Sattva",
+      "score": 100.0,
+      "n_items": 7,
+      "mean_norm": 85.26785714285714,
+      "sd_norm": 14.963208036787652,
+      "T": 59.845577780462115
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Selflessness",
+      "score": 100.0,
+      "n_items": 9,
+      "mean_norm": 77.08333333333333,
+      "sd_norm": 12.922745625344271,
+      "T": 67.73358954131402
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Tamas",
+      "score": 100.0,
+      "n_items": 7,
+      "mean_norm": 81.69642857142857,
+      "sd_norm": 24.922437991735382,
+      "T": 57.34421385044318
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Time",
+      "score": 55.55555555555556,
+      "n_items": 9,
+      "mean_norm": 60.41666666666667,
+      "sd_norm": 13.342424149567005,
+      "T": 46.35665074305941
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Application",
+      "score": 63.888888888888886,
+      "n_items": 9,
+      "mean_norm": 67.36111111111111,
+      "sd_norm": 9.12266978775607,
+      "T": 46.19385300245938
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Association",
+      "score": 61.111111111111114,
+      "n_items": 9,
+      "mean_norm": 63.88888888888889,
+      "sd_norm": 9.272477337736447,
+      "T": 47.00427655242361
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Clarity",
+      "score": 69.44444444444444,
+      "n_items": 9,
+      "mean_norm": 72.91666666666667,
+      "sd_norm": 10.260066249085636,
+      "T": 46.61578966653196
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Collective",
+      "score": 72.22222222222223,
+      "n_items": 9,
+      "mean_norm": 63.54166666666667,
+      "sd_norm": 12.372586968344239,
+      "T": 57.01595840689187
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Desire",
+      "score": 69.44444444444444,
+      "n_items": 9,
+      "mean_norm": 70.48611111111111,
+      "sd_norm": 11.590596672170557,
+      "T": 49.10128296572708
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Dharma",
+      "score": 72.22222222222223,
+      "n_items": 9,
+      "mean_norm": 73.95833333333333,
+      "sd_norm": 12.238220049597212,
+      "T": 48.58140227575967
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Fear",
+      "score": 55.55555555555556,
+      "n_items": 9,
+      "mean_norm": 46.52777777777778,
+      "sd_norm": 9.478230882933483,
+      "T": 59.52474980751229
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Knowledge",
+      "score": 69.44444444444444,
+      "n_items": 9,
+      "mean_norm": 65.27777777777777,
+      "sd_norm": 14.69861839480328,
+      "T": 52.83473354756921
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Openness",
+      "score": 52.77777777777778,
+      "n_items": 9,
+      "mean_norm": 54.86111111111111,
+      "sd_norm": 12.664264600978528,
+      "T": 48.35495119616156
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Rajas",
+      "score": 60.714285714285715,
+      "n_items": 7,
+      "mean_norm": 70.98214285714286,
+      "sd_norm": 13.823847544477065,
+      "T": 42.5723593884979
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Responsibility",
+      "score": 66.66666666666667,
+      "n_items": 9,
+      "mean_norm": 45.138888888888886,
+      "sd_norm": 14.604576364744403,
+      "T": 64.7404328890676
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Sattva",
+      "score": 75.0,
+      "n_items": 7,
+      "mean_norm": 85.26785714285714,
+      "sd_norm": 14.963208036787652,
+      "T": 43.137930637859746
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Selflessness",
+      "score": 63.888888888888886,
+      "n_items": 9,
+      "mean_norm": 77.08333333333333,
+      "sd_norm": 12.922745625344271,
+      "T": 39.78975147621314
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Tamas",
+      "score": 25.0,
+      "n_items": 7,
+      "mean_norm": 81.69642857142857,
+      "sd_norm": 24.922437991735382,
+      "T": 27.250849780334544
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Time",
+      "score": 66.66666666666667,
+      "n_items": 9,
+      "mean_norm": 60.41666666666667,
+      "sd_norm": 13.342424149567005,
+      "T": 54.68430618749504
+    }
+  ],
+  "pillar_T": [
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "A",
+      "value": 61.111111111111114,
+      "n_traits": 8.0,
+      "mean_norm": 57.11185515873016,
+      "sd_norm": 4.989704439184161,
+      "T": 58.01501572112126
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "D",
+      "value": 58.547008547008545,
+      "n_traits": 13.0,
+      "mean_norm": 57.02075702075702,
+      "sd_norm": 3.8475725485047154,
+      "T": 53.966790767453304
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "E",
+      "value": 58.56481481481481,
+      "n_traits": 12.0,
+      "mean_norm": 55.89864417989418,
+      "sd_norm": 3.550675681720905,
+      "T": 57.508910624099634
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "L",
+      "value": 64.93055555555556,
+      "n_traits": 8.0,
+      "mean_norm": 63.436259920634924,
+      "sd_norm": 4.53532523500685,
+      "T": 53.29479267194908
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "A",
+      "value": 56.448412698412696,
+      "n_traits": 8.0,
+      "mean_norm": 57.11185515873016,
+      "sd_norm": 4.989704439184161,
+      "T": 48.67037723696128
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "D",
+      "value": 54.18192918192918,
+      "n_traits": 13.0,
+      "mean_norm": 57.02075702075702,
+      "sd_norm": 3.8475725485047154,
+      "T": 42.621769172536865
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "E",
+      "value": 56.150793650793645,
+      "n_traits": 12.0,
+      "mean_norm": 55.89864417989418,
+      "sd_norm": 3.550675681720905,
+      "T": 50.71014503576755
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "L",
+      "value": 65.27777777777777,
+      "n_traits": 8.0,
+      "mean_norm": 63.436259920634924,
+      "sd_norm": 4.53532523500685,
+      "T": 54.060387649663376
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "A",
+      "value": 55.4563492063492,
+      "n_traits": 8.0,
+      "mean_norm": 57.11185515873016,
+      "sd_norm": 4.989704439184161,
+      "T": 46.682156282884684
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "D",
+      "value": 58.05860805860805,
+      "n_traits": 13.0,
+      "mean_norm": 57.02075702075702,
+      "sd_norm": 3.8475725485047154,
+      "T": 52.697417721868234
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "E",
+      "value": 56.87830687830688,
+      "n_traits": 12.0,
+      "mean_norm": 55.89864417989418,
+      "sd_norm": 3.550675681720905,
+      "T": 52.759088089785465
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "L",
+      "value": 66.66666666666667,
+      "n_traits": 8.0,
+      "mean_norm": 63.436259920634924,
+      "sd_norm": 4.53532523500685,
+      "T": 57.12276756052065
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "A",
+      "value": 59.523809523809526,
+      "n_traits": 8.0,
+      "mean_norm": 57.11185515873016,
+      "sd_norm": 4.989704439184161,
+      "T": 54.83386219459871
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "D",
+      "value": 60.13431013431012,
+      "n_traits": 13.0,
+      "mean_norm": 57.02075702075702,
+      "sd_norm": 3.8475725485047154,
+      "T": 58.0922531656047
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "E",
+      "value": 58.2010582010582,
+      "n_traits": 12.0,
+      "mean_norm": 55.89864417989418,
+      "sd_norm": 3.550675681720905,
+      "T": 56.484439097090714
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "L",
+      "value": 65.72420634920636,
+      "n_traits": 8.0,
+      "mean_norm": 63.436259920634924,
+      "sd_norm": 4.53532523500685,
+      "T": 55.0447240495818
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "A",
+      "value": 49.156746031746025,
+      "n_traits": 8.0,
+      "mean_norm": 57.11185515873016,
+      "sd_norm": 4.989704439184161,
+      "T": 34.05695322449834
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "D",
+      "value": 49.694749694749696,
+      "n_traits": 13.0,
+      "mean_norm": 57.02075702075702,
+      "sd_norm": 3.8475725485047154,
+      "T": 30.95940431622418
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "E",
+      "value": 48.51190476190476,
+      "n_traits": 12.0,
+      "mean_norm": 55.89864417989418,
+      "sd_norm": 3.550675681720905,
+      "T": 29.196242968579746
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "L",
+      "value": 53.07539682539682,
+      "n_traits": 8.0,
+      "mean_norm": 63.436259920634924,
+      "sd_norm": 4.53532523500685,
+      "T": 27.15519271856045
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "A",
+      "value": 51.19047619047619,
+      "n_traits": 8.0,
+      "mean_norm": 57.11185515873016,
+      "sd_norm": 4.989704439184161,
+      "T": 38.13280618035536
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "D",
+      "value": 57.570207570207565,
+      "n_traits": 13.0,
+      "mean_norm": 57.02075702075702,
+      "sd_norm": 3.8475725485047154,
+      "T": 51.42804467628318
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "E",
+      "value": 56.11772486772487,
+      "n_traits": 12.0,
+      "mean_norm": 55.89864417989418,
+      "sd_norm": 3.550675681720905,
+      "T": 50.61701126058494
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "L",
+      "value": 66.8154761904762,
+      "n_traits": 8.0,
+      "mean_norm": 63.436259920634924,
+      "sd_norm": 4.53532523500685,
+      "T": 57.4508796938268
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "A",
+      "value": 60.763888888888886,
+      "n_traits": 8.0,
+      "mean_norm": 57.11185515873016,
+      "sd_norm": 4.989704439184161,
+      "T": 57.319138387194435
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "D",
+      "value": 55.76923076923077,
+      "n_traits": 13.0,
+      "mean_norm": 57.02075702075702,
+      "sd_norm": 3.8475725485047154,
+      "T": 46.7472315706883
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "E",
+      "value": 53.24074074074074,
+      "n_traits": 12.0,
+      "mean_norm": 55.89864417989418,
+      "sd_norm": 3.550675681720905,
+      "T": 42.51437281969602
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "L",
+      "value": 63.54166666666667,
+      "n_traits": 8.0,
+      "mean_norm": 63.436259920634924,
+      "sd_norm": 4.53532523500685,
+      "T": 50.232412761091844
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "A",
+      "value": 63.24404761904762,
+      "n_traits": 8.0,
+      "mean_norm": 57.11185515873016,
+      "sd_norm": 4.989704439184161,
+      "T": 62.28969077238592
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "D",
+      "value": 62.21001221001221,
+      "n_traits": 13.0,
+      "mean_norm": 57.02075702075702,
+      "sd_norm": 3.8475725485047154,
+      "T": 63.48708860934122
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "E",
+      "value": 59.523809523809526,
+      "n_traits": 12.0,
+      "mean_norm": 55.89864417989418,
+      "sd_norm": 3.550675681720905,
+      "T": 60.209790104395964
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "L",
+      "value": 61.45833333333333,
+      "n_traits": 8.0,
+      "mean_norm": 63.436259920634924,
+      "sd_norm": 4.53532523500685,
+      "T": 45.63884289480596
+    }
+  ],
+  "guna_pct": [
+    {
+      "participant_id": "Debankan Mahanta",
+      "Rajas": 60.71428571428571,
+      "Sattva": 100.0,
+      "Tamas": 89.28571428571429
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "Rajas": 96.42857142857143,
+      "Sattva": 100.0,
+      "Tamas": 96.42857142857143
+    },
+    {
+      "participant_id": "Pragya",
+      "Rajas": 64.28571428571429,
+      "Sattva": 75.0,
+      "Tamas": 89.28571428571429
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "Rajas": 67.85714285714286,
+      "Sattva": 78.57142857142857,
+      "Tamas": 67.85714285714286
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "Rajas": 57.14285714285714,
+      "Sattva": 60.71428571428571,
+      "Tamas": 96.42857142857143
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "Rajas": 85.71428571428571,
+      "Sattva": 92.85714285714286,
+      "Tamas": 89.28571428571429
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "Rajas": 75.0,
+      "Sattva": 100.0,
+      "Tamas": 100.0
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "Rajas": 60.71428571428571,
+      "Sattva": 75.0,
+      "Tamas": 25.0
+    }
+  ],
+  "guna_T": [
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Rajas",
+      "pct": 60.71428571428571,
+      "mean_norm": 70.98214285714286,
+      "sd_norm": 13.823847544477069,
+      "T": 42.572359388497894
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Rajas",
+      "pct": 96.42857142857143,
+      "mean_norm": 70.98214285714286,
+      "sd_norm": 13.823847544477069,
+      "T": 68.40763108067911
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Rajas",
+      "pct": 64.28571428571429,
+      "mean_norm": 70.98214285714286,
+      "sd_norm": 13.823847544477069,
+      "T": 45.15588655771602
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Rajas",
+      "pct": 67.85714285714286,
+      "mean_norm": 70.98214285714286,
+      "sd_norm": 13.823847544477069,
+      "T": 47.739413726934146
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Rajas",
+      "pct": 57.14285714285714,
+      "mean_norm": 70.98214285714286,
+      "sd_norm": 13.823847544477069,
+      "T": 39.98883221927977
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Rajas",
+      "pct": 85.71428571428571,
+      "mean_norm": 70.98214285714286,
+      "sd_norm": 13.823847544477069,
+      "T": 60.65704957302474
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Rajas",
+      "pct": 75.0,
+      "mean_norm": 70.98214285714286,
+      "sd_norm": 13.823847544477069,
+      "T": 52.90646806537038
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Rajas",
+      "pct": 60.71428571428571,
+      "mean_norm": 70.98214285714286,
+      "sd_norm": 13.823847544477069,
+      "T": 42.572359388497894
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Sattva",
+      "pct": 100.0,
+      "mean_norm": 85.26785714285714,
+      "sd_norm": 14.963208036787654,
+      "T": 59.84557778046211
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Sattva",
+      "pct": 100.0,
+      "mean_norm": 85.26785714285714,
+      "sd_norm": 14.963208036787654,
+      "T": 59.84557778046211
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Sattva",
+      "pct": 75.0,
+      "mean_norm": 85.26785714285714,
+      "sd_norm": 14.963208036787654,
+      "T": 43.137930637859746
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Sattva",
+      "pct": 78.57142857142857,
+      "mean_norm": 85.26785714285714,
+      "sd_norm": 14.963208036787654,
+      "T": 45.52473737251722
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Sattva",
+      "pct": 60.71428571428571,
+      "mean_norm": 85.26785714285714,
+      "sd_norm": 14.963208036787654,
+      "T": 33.59070369922982
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Sattva",
+      "pct": 92.85714285714286,
+      "mean_norm": 85.26785714285714,
+      "sd_norm": 14.963208036787654,
+      "T": 55.071964311147156
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Sattva",
+      "pct": 100.0,
+      "mean_norm": 85.26785714285714,
+      "sd_norm": 14.963208036787654,
+      "T": 59.84557778046211
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Sattva",
+      "pct": 75.0,
+      "mean_norm": 85.26785714285714,
+      "sd_norm": 14.963208036787654,
+      "T": 43.137930637859746
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "construct": "Tamas",
+      "pct": 89.28571428571429,
+      "mean_norm": 81.69642857142857,
+      "sd_norm": 24.922437991735382,
+      "T": 53.04516184042766
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "construct": "Tamas",
+      "pct": 96.42857142857143,
+      "mean_norm": 81.69642857142857,
+      "sd_norm": 24.922437991735382,
+      "T": 55.911196513771344
+    },
+    {
+      "participant_id": "Pragya",
+      "construct": "Tamas",
+      "pct": 89.28571428571429,
+      "mean_norm": 81.69642857142857,
+      "sd_norm": 24.922437991735382,
+      "T": 53.04516184042766
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "construct": "Tamas",
+      "pct": 67.85714285714286,
+      "mean_norm": 81.69642857142857,
+      "sd_norm": 24.922437991735382,
+      "T": 44.44705782039662
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "construct": "Tamas",
+      "pct": 96.42857142857143,
+      "mean_norm": 81.69642857142857,
+      "sd_norm": 24.922437991735382,
+      "T": 55.911196513771344
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "construct": "Tamas",
+      "pct": 89.28571428571429,
+      "mean_norm": 81.69642857142857,
+      "sd_norm": 24.922437991735382,
+      "T": 53.04516184042766
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "construct": "Tamas",
+      "pct": 100.0,
+      "mean_norm": 81.69642857142857,
+      "sd_norm": 24.922437991735382,
+      "T": 57.34421385044318
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "construct": "Tamas",
+      "pct": 25.0,
+      "mean_norm": 81.69642857142857,
+      "sd_norm": 24.922437991735382,
+      "T": 27.250849780334544
+    }
+  ],
+  "guna_breakdown": [
+    {
+      "participant_id": "Debankan Mahanta",
+      "guna": "Rajas",
+      "earned": 425.0,
+      "possible": 700.0,
+      "pct": 60.71428571428571
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "guna": "Sattva",
+      "earned": 700.0,
+      "possible": 700.0,
+      "pct": 100.0
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "guna": "Tamas",
+      "earned": 625.0,
+      "possible": 700.0,
+      "pct": 89.28571428571429
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "guna": "Rajas",
+      "earned": 675.0,
+      "possible": 700.0,
+      "pct": 96.42857142857143
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "guna": "Sattva",
+      "earned": 700.0,
+      "possible": 700.0,
+      "pct": 100.0
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "guna": "Tamas",
+      "earned": 675.0,
+      "possible": 700.0,
+      "pct": 96.42857142857143
+    },
+    {
+      "participant_id": "Pragya",
+      "guna": "Rajas",
+      "earned": 450.0,
+      "possible": 700.0,
+      "pct": 64.28571428571429
+    },
+    {
+      "participant_id": "Pragya",
+      "guna": "Sattva",
+      "earned": 525.0,
+      "possible": 700.0,
+      "pct": 75.0
+    },
+    {
+      "participant_id": "Pragya",
+      "guna": "Tamas",
+      "earned": 625.0,
+      "possible": 700.0,
+      "pct": 89.28571428571429
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "guna": "Rajas",
+      "earned": 475.0,
+      "possible": 700.0,
+      "pct": 67.85714285714286
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "guna": "Sattva",
+      "earned": 550.0,
+      "possible": 700.0,
+      "pct": 78.57142857142857
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "guna": "Tamas",
+      "earned": 475.0,
+      "possible": 700.0,
+      "pct": 67.85714285714286
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "guna": "Rajas",
+      "earned": 400.0,
+      "possible": 700.0,
+      "pct": 57.14285714285714
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "guna": "Sattva",
+      "earned": 425.0,
+      "possible": 700.0,
+      "pct": 60.71428571428571
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "guna": "Tamas",
+      "earned": 675.0,
+      "possible": 700.0,
+      "pct": 96.42857142857143
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "guna": "Rajas",
+      "earned": 600.0,
+      "possible": 700.0,
+      "pct": 85.71428571428571
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "guna": "Sattva",
+      "earned": 650.0,
+      "possible": 700.0,
+      "pct": 92.85714285714286
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "guna": "Tamas",
+      "earned": 625.0,
+      "possible": 700.0,
+      "pct": 89.28571428571429
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "guna": "Rajas",
+      "earned": 525.0,
+      "possible": 700.0,
+      "pct": 75.0
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "guna": "Sattva",
+      "earned": 700.0,
+      "possible": 700.0,
+      "pct": 100.0
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "guna": "Tamas",
+      "earned": 700.0,
+      "possible": 700.0,
+      "pct": 100.0
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "guna": "Rajas",
+      "earned": 425.0,
+      "possible": 700.0,
+      "pct": 60.71428571428571
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "guna": "Sattva",
+      "earned": 525.0,
+      "possible": 700.0,
+      "pct": 75.0
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "guna": "Tamas",
+      "earned": 175.0,
+      "possible": 700.0,
+      "pct": 25.0
+    }
+  ],
+  "matrix_xy": [
+    {
+      "participant_id": "Debankan Mahanta",
+      "matrix": "Selflessness vs. Clarity",
+      "x": 72.22222222222223,
+      "y": 94.44444444444444,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "matrix": "Selflessness vs. Clarity",
+      "x": 77.77777777777777,
+      "y": 72.22222222222223,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Pragya",
+      "matrix": "Selflessness vs. Clarity",
+      "x": 86.11111111111111,
+      "y": 61.111111111111114,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "matrix": "Selflessness vs. Clarity",
+      "x": 80.55555555555556,
+      "y": 63.888888888888886,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "matrix": "Selflessness vs. Clarity",
+      "x": 58.333333333333336,
+      "y": 69.44444444444444,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "matrix": "Selflessness vs. Clarity",
+      "x": 77.77777777777777,
+      "y": 75.0,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "matrix": "Selflessness vs. Clarity",
+      "x": 100.0,
+      "y": 77.77777777777777,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "matrix": "Selflessness vs. Clarity",
+      "x": 63.888888888888886,
+      "y": 69.44444444444444,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "matrix": "Association vs. Openness",
+      "x": 61.111111111111114,
+      "y": 44.44444444444444,
+      "quadrant": "Q4"
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "matrix": "Association vs. Openness",
+      "x": 77.77777777777777,
+      "y": 63.888888888888886,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Pragya",
+      "matrix": "Association vs. Openness",
+      "x": 58.333333333333336,
+      "y": 77.77777777777777,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "matrix": "Association vs. Openness",
+      "x": 72.22222222222223,
+      "y": 61.111111111111114,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "matrix": "Association vs. Openness",
+      "x": 50.0,
+      "y": 44.44444444444444,
+      "quadrant": "Q4"
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "matrix": "Association vs. Openness",
+      "x": 58.333333333333336,
+      "y": 55.55555555555556,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "matrix": "Association vs. Openness",
+      "x": 72.22222222222223,
+      "y": 38.888888888888886,
+      "quadrant": "Q4"
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "matrix": "Association vs. Openness",
+      "x": 61.111111111111114,
+      "y": 52.77777777777778,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "matrix": "Dharma vs. Desire",
+      "x": 58.333333333333336,
+      "y": 69.44444444444444,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "matrix": "Dharma vs. Desire",
+      "x": 80.55555555555556,
+      "y": 83.33333333333333,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Pragya",
+      "matrix": "Dharma vs. Desire",
+      "x": 63.888888888888886,
+      "y": 83.33333333333333,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "matrix": "Dharma vs. Desire",
+      "x": 83.33333333333333,
+      "y": 83.33333333333333,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "matrix": "Dharma vs. Desire",
+      "x": 52.77777777777778,
+      "y": 52.77777777777778,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "matrix": "Dharma vs. Desire",
+      "x": 72.22222222222223,
+      "y": 86.11111111111111,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "matrix": "Dharma vs. Desire",
+      "x": 83.33333333333333,
+      "y": 61.111111111111114,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "matrix": "Dharma vs. Desire",
+      "x": 69.44444444444444,
+      "y": 72.22222222222223,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "matrix": "Fear vs. Responsibility",
+      "x": 47.22222222222222,
+      "y": 36.111111111111114,
+      "quadrant": "Q3"
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "matrix": "Fear vs. Responsibility",
+      "x": 33.333333333333336,
+      "y": 36.111111111111114,
+      "quadrant": "Q3"
+    },
+    {
+      "participant_id": "Pragya",
+      "matrix": "Fear vs. Responsibility",
+      "x": 55.55555555555556,
+      "y": 58.333333333333336,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "matrix": "Fear vs. Responsibility",
+      "x": 41.666666666666664,
+      "y": 47.22222222222222,
+      "quadrant": "Q3"
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "matrix": "Fear vs. Responsibility",
+      "x": 55.55555555555556,
+      "y": 50.0,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "matrix": "Fear vs. Responsibility",
+      "x": 33.333333333333336,
+      "y": 47.22222222222222,
+      "quadrant": "Q3"
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "matrix": "Fear vs. Responsibility",
+      "x": 50.0,
+      "y": 19.444444444444443,
+      "quadrant": "Q4"
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "matrix": "Fear vs. Responsibility",
+      "x": 55.55555555555556,
+      "y": 66.66666666666667,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "matrix": "Knowledge vs. Application",
+      "x": 58.333333333333336,
+      "y": 80.55555555555556,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "matrix": "Knowledge vs. Application",
+      "x": 61.111111111111114,
+      "y": 69.44444444444444,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Pragya",
+      "matrix": "Knowledge vs. Application",
+      "x": 69.44444444444444,
+      "y": 55.55555555555556,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "matrix": "Knowledge vs. Application",
+      "x": 63.888888888888886,
+      "y": 72.22222222222223,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "matrix": "Knowledge vs. Application",
+      "x": 63.888888888888886,
+      "y": 58.333333333333336,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "matrix": "Knowledge vs. Application",
+      "x": 41.666666666666664,
+      "y": 61.111111111111114,
+      "quadrant": "Q2"
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "matrix": "Knowledge vs. Application",
+      "x": 94.44444444444444,
+      "y": 77.77777777777777,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "matrix": "Knowledge vs. Application",
+      "x": 69.44444444444444,
+      "y": 63.888888888888886,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Debankan Mahanta",
+      "matrix": "Time vs. Collective Orientation",
+      "x": 55.55555555555556,
+      "y": 50.0,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Jaykumar Acharya",
+      "matrix": "Time vs. Collective Orientation",
+      "x": 44.44444444444444,
+      "y": 66.66666666666667,
+      "quadrant": "Q2"
+    },
+    {
+      "participant_id": "Pragya",
+      "matrix": "Time vs. Collective Orientation",
+      "x": 75.0,
+      "y": 63.888888888888886,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Rajesh Singh",
+      "matrix": "Time vs. Collective Orientation",
+      "x": 77.77777777777777,
+      "y": 75.0,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Rohan Gupta",
+      "matrix": "Time vs. Collective Orientation",
+      "x": 41.666666666666664,
+      "y": 52.77777777777778,
+      "quadrant": "Q2"
+    },
+    {
+      "participant_id": "Sreedhar Reddy Jaggavarapu",
+      "matrix": "Time vs. Collective Orientation",
+      "x": 66.66666666666667,
+      "y": 80.55555555555556,
+      "quadrant": "Q1"
+    },
+    {
+      "participant_id": "Sumit Roy",
+      "matrix": "Time vs. Collective Orientation",
+      "x": 55.55555555555556,
+      "y": 47.22222222222222,
+      "quadrant": "Q4"
+    },
+    {
+      "participant_id": "Sunil Chavan",
+      "matrix": "Time vs. Collective Orientation",
+      "x": 66.66666666666667,
+      "y": 72.22222222222223,
+      "quadrant": "Q1"
+    }
+  ],
+  "norms": {
+    "trait": [
+      {
+        "construct_type": "construct",
+        "construct_id": "Application",
+        "mean_norm": 67.36111111111111,
+        "sd_norm": 9.12266978775607,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "Association",
+        "mean_norm": 63.88888888888889,
+        "sd_norm": 9.272477337736447,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "Clarity",
+        "mean_norm": 72.91666666666667,
+        "sd_norm": 10.260066249085636,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "Collective",
+        "mean_norm": 63.54166666666667,
+        "sd_norm": 12.372586968344239,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "Desire",
+        "mean_norm": 70.48611111111111,
+        "sd_norm": 11.590596672170557,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "Dharma",
+        "mean_norm": 73.95833333333333,
+        "sd_norm": 12.238220049597212,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "Fear",
+        "mean_norm": 46.52777777777778,
+        "sd_norm": 9.478230882933483,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "Knowledge",
+        "mean_norm": 65.27777777777777,
+        "sd_norm": 14.69861839480328,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "Openness",
+        "mean_norm": 54.86111111111111,
+        "sd_norm": 12.664264600978528,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "Rajas",
+        "mean_norm": 70.98214285714286,
+        "sd_norm": 13.823847544477065,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "Responsibility",
+        "mean_norm": 45.138888888888886,
+        "sd_norm": 14.604576364744403,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "Sattva",
+        "mean_norm": 85.26785714285714,
+        "sd_norm": 14.963208036787652,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "Selflessness",
+        "mean_norm": 77.08333333333333,
+        "sd_norm": 12.922745625344271,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "Tamas",
+        "mean_norm": 81.69642857142857,
+        "sd_norm": 24.922437991735382,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "Time",
+        "mean_norm": 60.41666666666667,
+        "sd_norm": 13.342424149567005,
+        "n": 8
+      }
+    ],
+    "guna": [
+      {
+        "construct_type": "construct",
+        "construct_id": "Rajas",
+        "mean_norm": 70.98214285714286,
+        "sd_norm": 13.823847544477069,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "Sattva",
+        "mean_norm": 85.26785714285714,
+        "sd_norm": 14.963208036787654,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "Tamas",
+        "mean_norm": 81.69642857142857,
+        "sd_norm": 24.922437991735382,
+        "n": 8
+      }
+    ],
+    "pillar": [
+      {
+        "construct_type": "construct",
+        "construct_id": "A",
+        "mean_norm": 57.11185515873016,
+        "sd_norm": 4.989704439184161,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "D",
+        "mean_norm": 57.02075702075702,
+        "sd_norm": 3.8475725485047154,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "E",
+        "mean_norm": 55.89864417989418,
+        "sd_norm": 3.550675681720905,
+        "n": 8
+      },
+      {
+        "construct_type": "construct",
+        "construct_id": "L",
+        "mean_norm": 63.436259920634924,
+        "sd_norm": 4.53532523500685,
+        "n": 8
+      }
+    ]
+  },
+  "norms_source": "empirical"
+}

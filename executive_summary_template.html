@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>LEAD Executive Summary – {{ person_name }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root{
+    --ink:#111318;--muted:#5b6472;--line:#e8edf3;--acc:#2c6bed;--acc2:#0f8b5c;
+    --bg:#ffffff;--pillL:#155E63;--pillE:#7B1FA2;--pillA:#0D47A1;--pillD:#AD1457;
+  }
+  *{box-sizing:border-box}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink); background:var(--bg); margin:0; padding:32px;}
+  h1,h2,h3{margin:0 0 12px}
+  h1{font-size:28px; letter-spacing:.2px}
+  h2{font-size:20px; margin-top:28px}
+  h3{font-size:16px; margin-top:18px; color:var(--muted)}
+  p{margin:8px 0 12px; line-height:1.45}
+  .muted{color:var(--muted)}
+  .card{border:1px solid var(--line); border-radius:14px; padding:16px; margin:14px 0; background:#fff}
+  .grid{display:grid; gap:14px}
+  .g-2{grid-template-columns:repeat(2, minmax(0,1fr))}
+  .g-3{grid-template-columns:repeat(3, minmax(0,1fr))}
+  .tag{display:inline-block; padding:3px 8px; border-radius:999px; font-size:12px; border:1px solid var(--line); background:#fafcff}
+  table{width:100%; border-collapse:collapse; border:1px solid var(--line); overflow:hidden; border-radius:12px}
+  th,td{padding:10px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top}
+  th{font-weight:600; background:#f7f9fc}
+  .kpi{display:flex; gap:10px; align-items:baseline; flex-wrap:wrap}
+  .kpi b{font-size:18px}
+  .pill{padding:2px 8px; border-radius:6px; color:#fff; font-size:12px; font-weight:600}
+  .pill.L{background:var(--pillL)} .pill.E{background:var(--pillE)}
+  .pill.A{background:var(--pillA)} .pill.D{background:var(--pillD)}
+  .footer{margin-top:36px; font-size:12px; color:var(--muted)}
+  .hr{height:1px; background:var(--line); margin:14px 0}
+  .small{font-size:12px}
+  .right{float:right}
+  .center{display:flex; align-items:center; justify-content:center}
+  @media print { body{padding:0} .no-print{display:none} }
+</style>
+</head>
+<body>
+
+<!-- 1) COVER / CONFIDENTIALITY -->
+<div class="card">
+  <div class="kpi">
+    <h1>LEAD Executive Summary</h1>
+    <span class="tag">Confidential &amp; Personal</span>
+  </div>
+  <p><b>Participant:</b> {{ person_name }} &nbsp; • &nbsp; <b>Generated:</b> {{ generated_at }}</p>
+  <p class="muted small">This report is confidential and intended solely for the individual named above.
+  Do not distribute without consent.</p>
+</div>
+
+<!-- 2) OVERVIEW / EXECUTIVE SUMMARY -->
+<div class="card">
+  <h2>Leadership Overview</h2>
+  <p>{{ executive_summary_paragraph }}</p>
+
+  {% if pillar_overview %}
+  <div class="grid g-2">
+    {% for po in pillar_overview %}
+      <div class="card">
+        <div class="kpi">
+          <span class="pill {{ po.pillar_code }}">{{ po.pillar_name }}</span>
+          <span class="tag">{{ po.band_label }}</span>
+          {% if po.T is not none %}<span class="tag">T = {{ "%.1f"|format(po.T) }}</span>{% endif %}
+        </div>
+        {% if po.summary %}<p class="muted small">{{ po.summary }}</p>{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+
+<!-- 3) PILLAR INSIGHTS TABLE -->
+<div class="card">
+  <h2>Pillar Insights</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:14%">Pillar</th>
+        <th style="width:28%">Summary</th>
+        <th style="width:22%">Strength / Behaviors</th>
+        <th style="width:18%">Risk</th>
+        <th style="width:18%">Focus (Next 90 Days)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in lead_entries %}
+      <tr>
+        <td><span class="pill {{ e.pillar_code }}">{{ e.pillar_name }}</span><br><span class="tag">{{ e.t_band }}</span></td>
+        <td>{{ e.narrative }}</td>
+        <td>{{ e.behaviors }}</td>
+        <td>{{ e.risk }}</td>
+        <td>{{ e.focus }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- 4) GUNA SUMMARY -->
+<div class="card">
+  <h2>Guṇa Summary</h2>
+  <p><b>Dominant Profile:</b> {{ guna_name }} — {{ guna_one_liner }}</p>
+  {% if guna_numbers %}
+  <p class="kpi">
+    {% if guna_numbers.S_pct is not none %}<span class="tag">Sattva: {{ "%.1f"|format(guna_numbers.S_pct) }}%</span>{% endif %}
+    {% if guna_numbers.R_pct is not none %}<span class="tag">Rajas: {{ "%.1f"|format(guna_numbers.R_pct) }}%</span>{% endif %}
+    {% if guna_numbers.T_pct is not none %}<span class="tag">Tamas: {{ "%.1f"|format(guna_numbers.T_pct) }}%</span>{% endif %}
+    {% if guna_numbers.S_T is not none %}<span class="tag">S T-score: {{ "%.1f"|format(guna_numbers.S_T) }}</span>{% endif %}
+    {% if guna_numbers.R_T is not none %}<span class="tag">R T-score: {{ "%.1f"|format(guna_numbers.R_T) }}</span>{% endif %}
+    {% if guna_numbers.T_T is not none %}<span class="tag">T T-score: {{ "%.1f"|format(guna_numbers.T_T) }}</span>{% endif %}
+  </p>
+  {% endif %}
+  {% if guna_remark %}<p><b>Remark:</b> {{ guna_remark }}</p>{% endif %}
+  {% if guna_reco %}<p><b>Recommendation:</b> {{ guna_reco }}</p>{% endif %}
+</div>
+
+<!-- 5) LEADERSHIP ARCHETYPES (from matrices) -->
+{% if quadrant_entries and quadrant_entries|length > 0 %}
+<div class="card">
+  <h2>Leadership Archetypes (Across Six Matrices)</h2>
+  <div class="grid g-2">
+    {% for q in quadrant_entries %}
+      <div class="card">
+        <h3>{{ q.title or q.archetype or q.quadrant_name }}</h3>
+        <p>{{ q.narrative }}</p>
+        {% if q.development_focus %}
+        <p><b>Development Focus:</b> {{ q.development_focus }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- 6) METHODOLOGY (static / optional partial) -->
+<div class="card">
+  <h2>Methodology (Summary)</h2>
+  <p class="small muted">
+    The LEAD framework blends Loka-saṅgraha (L), Equanimity (E), Association (A), and Dharma (D) with the guṇa model (Sattva–Rajas–Tamas).
+    Items are normalized to 0–100 and aggregated to pillar and matrix scores. Pillar T-scores are banded by dynamic thresholds defined in the playbook.
+    Narratives, risks, and coaching actions are programmatically selected from the LEAD Guna Playbook.
+  </p>
+</div>
+
+<!-- 7) FOOTER / AUTHOR -->
+<div class="footer">
+  <div class="hr"></div>
+  <p><b>Prepared by:</b> Dr. Prem Prakash Pathak &nbsp;|&nbsp; Executive Alumni, IIM Kozhikode</p>
+  <p>Author — <i>LEAD: A Leadership Framework from the Indian Knowledge System</i> • Creator — LEAD Framework</p>
+  <p>📧 pvdas.rgm@gmail.com &nbsp;|&nbsp; 📱 +91-8956467539 &nbsp;|&nbsp; 🌐 www.pvdas.in</p>
+</div>
+
+</body>
+</html>
