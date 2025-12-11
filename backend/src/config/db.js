@@ -10,3 +10,7 @@ export const db = await mysql.createPool({
   database: process.env.DB_NAME,
   waitForConnections: true,
 });
+
+
+
+
