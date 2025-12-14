@@ -26,3 +26,15 @@ export const getSession = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+export const getSessionByToken = async (req, res) => {
+  try {
+    const data = await SessionService.getSessionByToken(req.params.token);
+    if (!data) {
+      return res.status(404).json({ error: 'Session not found for this token' });
+    }
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};

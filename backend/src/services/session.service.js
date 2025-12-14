@@ -22,11 +22,31 @@ export const createSession = async ({ session_name, session_description, company
 };
 
 export const listSessions = async () => {
-  const [rows] = await db.query("SELECT * FROM sessions ORDER BY session_id DESC");
+  // include link_token from session_links when available
+  const [rows] = await db.query(
+    `SELECT s.*, l.link_token
+     FROM sessions s
+     LEFT JOIN session_links l ON s.session_id = l.session_id
+     ORDER BY s.session_id DESC`
+  );
   return rows;
 };
 
 export const getSession = async (session_id) => {
-  const [rows] = await db.query("SELECT * FROM sessions WHERE session_id = ?", [session_id]);
+  const [rows] = await db.query(
+    `SELECT s.*, l.link_token
+     FROM sessions s
+     LEFT JOIN session_links l ON s.session_id = l.session_id
+     WHERE s.session_id = ? LIMIT 1`,
+    [session_id]
+  );
+  return rows[0];
+};
+
+export const getSessionByToken = async (token) => {
+  const [rows] = await db.query(
+    "SELECT s.* FROM sessions s JOIN session_links l ON s.session_id = l.session_id WHERE l.link_token = ? LIMIT 1",
+    [token]
+  );
   return rows[0];
 };
