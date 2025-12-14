@@ -4,6 +4,18 @@
 
 ---
 
+## Product demo
+
+
+<video controls width="840">
+  <source src="/demo.mov" type="video/quicktime">
+  Your browser does not support the inline player. Click the link to open the demo: [demo.mov](/demo.mov)
+</video>
+
+Demo file: `/demo.mov` (repo root)
+
+---
+
 ## Contents
 
 - `frontend/lead` — Next.js (app-router) frontend (React + Tailwind).
@@ -41,39 +53,11 @@ cd frontend/lead
 npm install
 
 # Backend
-## Demo Video (Local)
-
-Include a short local demo file to quickly show the main flows: creating sessions, sharing public links, filling anonymous forms, generating reports, and viewing analytics.
-
-Place the demo file at `demo.mov` (or `demo.mp4`) in the repository root. The README embeds the local file using an HTML5 `<video>` tag so it plays inline on platforms that support it.
-
-Add the video file to the repo and commit it:
-
-```bash
-# copy your demo.mov into the repository root
-git add demo.mov
-git commit -m "Add demo video"
-git push
+cd ../../backend
+npm install
 ```
 
-Embed (README) — this project uses a local video embed:
-
-```html
-<video controls width="840">
-  <source src="/demo.mov" type="video/quicktime">
-  Your browser does not support the video tag. Download `demo.mov` to view locally.
-</video>
-```
-
-Suggested demo script (90–180s):
-
-1. Dashboard overview and left-side navigation (Users, Company, Reports, Settings).
-2. Create a session and copy the public token link.
-3. Open the public form (anonymous), fill a few answers (1–5) and submit.
-4. Generate the report for the participant from the Users page and show the stored report in Reports.
-5. Quick look at DashboardAnalytics and the SVG chart.
-
-Notes:
+---
 
 - Use `demo.mov` (QuickTime) or `demo.mp4` (more broadly supported). GitHub will display inline for some formats; if not, users can download and play locally.
 If you want, provide the `demo.mov` file and I will add it to the repo root and update the README to reference it.
