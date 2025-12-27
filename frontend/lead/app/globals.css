@@ -1,22 +1,10 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
@@ -27,7 +15,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 /* Spiritual minimalistic enhancements */
 .auth-container {
   background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
@@ -64,4 +51,62 @@ button, input, a {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(100, 116, 139, 0.5);
+}
+
+/* PDF Export Styles */
+@media print {
+  .pdf-header, .pdf-footer {
+    display: block !important;
+  }
+  
+  /* Hide sidebar and export button in PDF */
+  nav, button {
+    display: none !important;
+  }
+  
+  /* Ensure proper page breaks */
+  section {
+    page-break-inside: avoid;
+  }
+  
+  /* Optimize chart rendering */
+  canvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* A4 sizing and cleanup */
+  body {
+    background: #ffffff !important;
+  }
+
+  .pdf-export-content {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 12mm 12mm 16mm;
+    background: #ffffff !important;
+    box-shadow: none !important;
+  }
+
+  .pdf-export-content * {
+    box-shadow: none !important;
+    background-image: none !important;
+  }
+
+  /* Tighten vertical rhythm for print */
+  .pdf-export-content h1 { margin-bottom: 12px; }
+  .pdf-export-content h2 { margin: 18px 0 10px; }
+  .pdf-export-content h3 { margin: 14px 0 8px; }
+  .pdf-export-content p { margin-bottom: 6px; }
+
+  /* Reduce large gaps when breaking pages */
+  .pdf-export-content > section {
+    padding-top: 8px;
+    padding-bottom: 12px;
+  }
+}
+
+.pdf-export-content {
+  background: white;
 }

@@ -83,3 +83,31 @@ export async function getResult(participant_id: string | number) {
   }
   return res.json();
 }
+
+export async function getLeadershipType(payload: { guna: string; pillar: string; profile_level: string }) {
+  const res = await fetch(`${API_BASE}/leadership-type/lookup`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+    cache: 'no-store',
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(text || 'Failed to load leadership type');
+  }
+  return res.json();
+}
+
+export async function getQuadrantInterpretation(payload: { matrix: string; quadrant: string }) {
+  const res = await fetch(`${API_BASE}/quadrants/lookup`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+    cache: 'no-store',
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(text || 'Failed to load quadrant interpretation');
+  }
+  return res.json();
+}

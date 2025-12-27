@@ -10,6 +10,8 @@ import processRoutes from "./routes/process.routes.js";
 import questionRoutes from "./routes/question.routes.js";
 // import reportRoutes from "./routes/report.routes.js";
 import resultRoutes from "./routes/result.routes.js";
+import leadershipTypeRoutes from "./routes/leadershipType.routes.js";
+import quadrantInterpretationRoutes from "./routes/quadrantInterpretation.routes.js";
 
 const app = express();
 
@@ -24,5 +26,7 @@ app.use("/api/process", processRoutes);
 app.use("/api/questions", questionRoutes);
 // app.use("/api/report", reportRoutes);
 app.use("/api/results", resultRoutes);
+app.use("/api/leadership-type", leadershipTypeRoutes);
+app.use("/api/quadrants", quadrantInterpretationRoutes);
 
 export default app;
