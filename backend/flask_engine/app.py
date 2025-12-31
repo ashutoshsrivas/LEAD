@@ -1,6 +1,10 @@
+import os
 from flask import Flask, request, jsonify
 from scoring.loader import prepare_data
 from scoring.context_builder import build_context
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -21,4 +25,6 @@ def process():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=4000)
+    host = os.getenv("FLASK_HOST", "0.0.0.0")
+    port = int(os.getenv("FLASK_PORT", "4000"))
+    app.run(host=host, port=port)

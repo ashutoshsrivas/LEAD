@@ -3,15 +3,15 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getAnalytics, isSupported } from "firebase/analytics";
 
-// Your web app's Firebase configuration
+// Firebase configuration sourced from environment for deployment friendliness
 const firebaseConfig = {
-  apiKey: "AIzaSyAIfabDrtRqTAiIM3fJf7y3oZ--8ys0HZg",
-  authDomain: "lead-48cd1.firebaseapp.com",
-  projectId: "lead-48cd1",
-  storageBucket: "lead-48cd1.firebasestorage.app",
-  messagingSenderId: "412758757312",
-  appId: "1:412758757312:web:0ccd93d9bd66bc29518225",
-  measurementId: "G-B746YG8EMF"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "",
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "",
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "",
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "",
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "",
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "",
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "",
 };
 
 // Initialize Firebase
