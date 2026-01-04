@@ -4,6 +4,8 @@ import { useAuth } from '../../AuthContext';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Sidebar from '../../components/Sidebar';
+import SimpleModal from '../../components/ui/SimpleModal';
+import SessionActions from '../../components/session/SessionActions';
 import { getSessions } from '../../lib/api';
 
 export default function CompanyPage() {
@@ -14,6 +16,8 @@ export default function CompanyPage() {
   const [companies, setCompanies] = useState<Record<string, any>>({});
   const [loadingData, setLoadingData] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const [modal, setModal] = useState<{ open: boolean; title?: string; message: string; okLabel?: string } | null>(null);
   useEffect(() => {
     if (!loading && !user) router.push('/login');
   }, [user, loading, router]);
@@ -86,18 +90,21 @@ export default function CompanyPage() {
                       const baseClean = String(base).replace(/\/$/, '');
                       const formUrl = `${baseClean}/${linkToken}`;
                       try { await navigator.clipboard.writeText(formUrl); } catch (e) {}
-                      alert(`Company created with session. Share this URL: ${formUrl}`);
+                      setModal({ open: true, title: 'Company & Session Created', message: `Company created with session. Share this URL: ${formUrl}` });
 
                       // update local state
-                      setSessions((prev) => [resp, ...(prev || [])]);
+                      setSessions((prev) => {
+                        const filtered = (prev || []).filter((p: any) => p.session_id !== resp.session_id);
+                        return [resp, ...filtered];
+                      });
                       setCompanies((prev) => {
                         const np = { ...prev };
                         np[name] = np[name] || { name, sessions: [] };
-                        np[name].sessions = [resp, ...(np[name].sessions || [])];
+                        np[name].sessions = [resp, ...((np[name].sessions || []).filter((s: any) => s.session_id !== resp.session_id))];
                         return np;
                       });
                     } catch (err: any) {
-                      alert('Failed to create company/session: ' + (err?.message || err));
+                      setModal({ open: true, title: 'Error', message: 'Failed to create company/session: ' + (err?.message || err) });
                     } finally {
                       setLoadingData(false);
                     }
@@ -136,41 +143,52 @@ export default function CompanyPage() {
                     <div className="mt-3 text-sm text-slate-600">
                       <ul className="list-disc list-inside">
                         {c.sessions.map((s: any) => (
-                          <li key={s.session_id}>
-                            <button
-                              type="button"
-                              onClick={async () => {
-                                try {
-                                  let linkToken = s.link_token || s.linkToken || s.token;
-                                  // If the token is not present on the session object, fetch the session record
-                                  if (!linkToken) {
-                                    try {
-                                      const api = await import('../../lib/api');
-                                      const fresh = await api.getSession(String(s.session_id));
-                                      linkToken = fresh?.link_token || fresh?.linkToken || fresh?.token;
-                                    } catch (e) {
-                                      // ignore
+                          <li key={s.session_id} className="flex items-center justify-between py-1">
+                            <div className="flex items-center gap-3">
+                              <div>
+                                <div className="font-semibold text-slate-800">{s.session_name}{s.archived ? <span className="ml-2 text-xs text-red-600">(Archived)</span> : null}</div>
+                                <div className="text-xs text-slate-500">{s.session_description}</div>
+                              </div>
+                            </div>
+
+                            <div className="flex items-center gap-2">
+                              <button
+                                type="button"
+                                onClick={async () => {
+                                  try {
+                                    let linkToken = s.link_token || s.linkToken || s.token;
+                                    // If the token is not present on the session object, fetch the session record
+                                    if (!linkToken) {
+                                      try {
+                                        const api = await import('../../lib/api');
+                                        const fresh = await api.getSession(String(s.session_id));
+                                        linkToken = fresh?.link_token || fresh?.linkToken || fresh?.token;
+                                      } catch (e) {
+                                        // ignore
+                                      }
                                     }
-                                  }
 
-                                  if (!linkToken) {
-                                    alert('No public link available for this session');
-                                    return;
-                                  }
+                                    if (!linkToken) {
+                                      setModal({ open: true, title: 'No Link', message: 'No public link available for this session' });
+                                      return;
+                                    }
 
-                                  const base = (process.env.NEXT_PUBLIC_FORM_BASE as string) || window.location.origin;
-                                  const baseClean = String(base).replace(/\/$/, '');
-                                  const formUrl = `${baseClean}/${linkToken}`;
-                                  try { await navigator.clipboard.writeText(formUrl); } catch (e) {}
-                                  alert(`Form link copied to clipboard: ${formUrl}`);
-                                } catch (err: any) {
-                                  alert('Failed to copy link: ' + (err?.message || err));
-                                }
-                              }}
-                              className="text-slate-800 hover:underline"
-                            >
-                              {s.session_name}
-                            </button>
+                                    const base = (process.env.NEXT_PUBLIC_FORM_BASE as string) || window.location.origin;
+                                    const baseClean = String(base).replace(/\/$/, '');
+                                    const formUrl = `${baseClean}/${linkToken}`;
+                                    try { await navigator.clipboard.writeText(formUrl); } catch (e) {}
+                                    setModal({ open: true, title: 'Copied', message: `Form link copied to clipboard: ${formUrl}` });
+                                  } catch (err: any) {
+                                    setModal({ open: true, title: 'Error', message: 'Failed to copy link: ' + (err?.message || err) });
+                                  }
+                                }}
+                                className="px-2 py-1 border rounded text-sm"
+                              >
+                                Copy link
+                              </button>
+
+                              <SessionActions session={s} onView={(sess) => { router.push(`/dashboard/reports?session=${sess.session_id}`); }} />
+                            </div>
                           </li>
                         ))}
                       </ul>
@@ -201,9 +219,22 @@ export default function CompanyPage() {
                             } catch (e) {
                               // ignore clipboard failure
                             }
-                            alert(`Session created. Share this URL: ${formUrl} (copied to clipboard)`);
+
+                            // update local state so the new session appears immediately in the list
+                            setSessions((prev) => {
+                              const filtered = (prev || []).filter((p: any) => p.session_id !== resp.session_id);
+                              return [resp, ...filtered];
+                            });
+                            setCompanies((prev) => {
+                              const np = { ...prev };
+                              np[c.name] = np[c.name] || { name: c.name, sessions: [] };
+                              np[c.name].sessions = [resp, ...((np[c.name].sessions || []).filter((s: any) => s.session_id !== resp.session_id))];
+                              return np;
+                            });
+
+                            setModal({ open: true, title: 'Session Created', message: `Session created. Share this URL: ${formUrl} (copied to clipboard)` });
                           } catch (err: any) {
-                            alert('Failed to create session: ' + (err.message || err));
+                            setModal({ open: true, title: 'Error', message: 'Failed to create session: ' + (err.message || err) });
                           }
                         }}
                         className="px-3 py-1 bg-slate-800 text-white rounded hover:bg-slate-700"
@@ -219,6 +250,14 @@ export default function CompanyPage() {
             )}
           </div>
         </main>
+
+        <SimpleModal
+          open={!!modal?.open}
+          onClose={() => setModal(null)}
+          title={modal?.title}
+          message={modal?.message || ""}
+          okLabel={modal?.okLabel}
+        />
       </div>
     </div>
   );

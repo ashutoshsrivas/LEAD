@@ -22,7 +22,7 @@ export default function SectionLeadership({ pillars }: { pillars: Record<string,
         Each pillar stands independently and develops via micro-shifts.
       </p>
 
-      <SectionBand pillars={pillars} />
+      {/* <SectionBand pillars={pillars} /> */}
       
       <SectionLeadDiamond pillars={pillars} />
     </section>

@@ -9,6 +9,8 @@ import SectionEnergy from "@/app/components/report/SectionEnergy";
 import SectionQuadrants from "@/app/components/report/SectionQuadrants";
 import SectionLeadershipType from "@/app/components/report/SectionLeadershipType";
 import SectionJSON from "@/app/components/report/SectionJSON";
+import SectionAppendix from "@/app/components/report/SectionAppendix";
+import SimpleModal from "@/app/components/ui/SimpleModal";;
 
 export default function SharedReportPage() {
   const params = useParams();
@@ -19,6 +21,8 @@ export default function SharedReportPage() {
   const [report, setReport] = useState<any | null>(null);
   const [isExporting, setIsExporting] = useState(false);
   const reportRef = useRef<HTMLDivElement>(null);
+
+  const [modal, setModal] = useState<{ open: boolean; title?: string; message: string; okLabel?: string } | null>(null);
 
   const shareBase = useMemo(
     () => process.env.NEXT_PUBLIC_SHARE_BASE_URL || (typeof window !== "undefined" ? window.location.origin : ""),
@@ -72,7 +76,7 @@ export default function SharedReportPage() {
       await html2pdf().set(opt).from(element).save();
     } catch (error) {
       console.error("PDF export failed:", error);
-      alert("Failed to export PDF. Please try again.");
+      setModal({ open: true, title: "Export Failed", message: "Failed to export PDF. Please try again." });
     } finally {
       setIsExporting(false);
     }
@@ -123,6 +127,18 @@ export default function SharedReportPage() {
           <SectionQuadrants matrices={report.matrices} />
           <SectionLeadershipType guna={report.guna_norm_pct} pillars={report.pillars} />
           <SectionJSON json={report} />
+
+          {/* Appendix */}
+          <SectionAppendix />
+
+          {/* Simple modal for in-app notices */}
+          <SimpleModal
+            open={!!modal?.open}
+            onClose={() => setModal(null)}
+            title={modal?.title}
+            message={modal?.message || ""}
+            okLabel={modal?.okLabel}
+          />
         </div>
       </main>
     </div>

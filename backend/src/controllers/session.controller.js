@@ -38,3 +38,21 @@ export const getSessionByToken = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+export const updateSession = async (req, res) => {
+  try {
+    const data = await SessionService.updateSession(req.params.session_id, req.body);
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+export const exportSession = async (req, res) => {
+  try {
+    const data = await SessionService.exportSession(req.params.session_id);
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};

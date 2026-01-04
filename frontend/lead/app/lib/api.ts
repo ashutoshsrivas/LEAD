@@ -68,6 +68,15 @@ export async function generateReport(participant_id: number) {
   return res.json();
 }
 
+export async function exportSession(session_id: number | string) {
+  const res = await fetch(`${API_BASE}/sessions/${session_id}/export`, { cache: 'no-store' });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(text || 'Failed to export session');
+  }
+  return res.json();
+}
+
 export async function getReports(session_id?: string) {
   const url = session_id ? `${API_BASE}/results?session_id=${session_id}` : `${API_BASE}/results`;
   const res = await fetch(url, { cache: 'no-store' });

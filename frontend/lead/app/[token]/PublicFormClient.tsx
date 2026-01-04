@@ -1,8 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { API_BASE } from "../lib/api";
+import SimpleModal from "@/app/components/ui/SimpleModal";
+import { generateReport } from "@/app/lib/api";
 
 export default function PublicFormClient({ session, questions, token }: any) {
   const [loading, setLoading] = useState<boolean>(false);
@@ -114,10 +116,38 @@ export default function PublicFormClient({ session, questions, token }: any) {
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [modal, setModal] = useState<{ open: boolean; title?: string; message: string | null; actionLabel?: string; onAction?: (() => void) | null } | null>(null);
+  const [detailsOpen, setDetailsOpen] = useState(true);
+  const nameRef = useRef<HTMLInputElement | null>(null);
+  const emailRef = useRef<HTMLInputElement | null>(null);
   const router = useRouter();
 
   const handleAnswer = (question_id: number, value: number) => {
-    setAnswers((a) => ({ ...a, [String(question_id)]: value }));
+    setAnswers((a) => {
+      const isFirst = Object.keys(a).length === 0;
+      const next = { ...a, [String(question_id)]: value };
+      if (isFirst) {
+        // collapse personal details when user starts answering questions
+        setDetailsOpen(false);
+      }
+      return next;
+    });
+  };
+
+  const validatePersonalDetails = () => {
+    if (!participant.name || !participant.name.trim() || !participant.email || !participant.email.trim()) {
+      setError('Please provide your Name and Email.');
+      setDetailsOpen(true);
+      setTimeout(() => {
+        if (!participant.name || !participant.name.trim()) {
+          nameRef.current?.focus();
+        } else {
+          emailRef.current?.focus();
+        }
+      }, 50);
+      return false;
+    }
+    return true;
   };
 
   const handleSubmit = async (e: any) => {
@@ -125,6 +155,12 @@ export default function PublicFormClient({ session, questions, token }: any) {
     setSubmitting(true);
     setError(null);
     try {
+      // validate personal details first
+      if (!validatePersonalDetails()) {
+        setSubmitting(false);
+        return;
+      }
+
       // validate all questions answered
       const totalQuestions = (qs || []).length;
       const answeredCount = Object.keys(answers || {}).length;
@@ -163,8 +199,30 @@ export default function PublicFormClient({ session, questions, token }: any) {
       });
       if (!rres.ok) throw new Error('Failed to save responses');
 
-      // redirect to thank-you page
-      router.push('/thank-you');
+      // generate report for this participant immediately
+      try {
+        await generateReport(pdata.participant_id);
+        const base = (process.env.NEXT_PUBLIC_SHARE_BASE_URL as string) || (typeof window !== 'undefined' ? window.location.origin : '');
+        const shareUrl = `${base.replace(/\/$/, '')}/share/reports/${pdata.participant_id}`;
+
+        // copy to clipboard if available
+        try { await navigator.clipboard.writeText(shareUrl); } catch (e) {}
+
+        setModal({
+          open: true,
+          title: 'Report Ready',
+          message: `Your report is ready. You can view it using this link:\n${shareUrl}`,
+          actionLabel: 'View Report',
+          onAction: () => { window.location.href = shareUrl; }
+        });
+      } catch (genErr: any) {
+        // if generation failed, still show thank-you messaging
+        setModal({ open: true, title: 'Thank you', message: 'Your responses were saved. We will process your report and email a link when ready.' });
+      }
+
+      // clear form but keep user on page so they can click view
+      setParticipant({ name: '', email: '', phone: '', designation: '', department: '', company: '' });
+      setAnswers({});
     } catch (err: any) {
       setError(err.message || String(err));
     } finally {
@@ -212,41 +270,59 @@ export default function PublicFormClient({ session, questions, token }: any) {
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-slate-700">Name</label>
-                  <input required placeholder="Name" value={participant.name} onChange={(e) => setParticipant({ ...participant, name: e.target.value })} className="mt-1 block w-full border border-slate-200 px-3 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400" />
-                </div>
+                  <button type="button" onClick={() => setDetailsOpen((v) => !v)} className="w-full flex items-center justify-between p-3 border rounded-md hover:bg-slate-50">
+                    <div className="text-left">
+                      <div className="text-sm font-medium text-slate-800">Personal details</div>
+                      <div className="text-xs text-slate-500 mt-1">{participant.name || participant.email ? `${participant.name || ''}${participant.name && participant.email ? ' · ' : ''}${participant.email || ''}` : 'Name and email are required'}</div>
+                    </div>
+                    <div className={`transform transition-transform ${detailsOpen ? 'rotate-180' : ''}`}>
+                      <svg className="h-5 w-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </button>
 
-                <div>
-                  <label className="block text-sm font-medium text-slate-700">Email</label>
-                  <input required placeholder="Email" type="email" value={participant.email} onChange={(e) => setParticipant({ ...participant, email: e.target.value })} className="mt-1 block w-full border border-slate-200 px-3 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400" />
-                </div>
+                  {detailsOpen && (
+                    <div className="mt-3 space-y-4">
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700">Name</label>
+                        <input ref={nameRef} required placeholder="Name" value={participant.name} onChange={(e) => { setParticipant({ ...participant, name: e.target.value }); setError(null); }} className="mt-1 block w-full border border-slate-200 px-3 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400" />
+                      </div>
 
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700">Phone</label>
-                    <input placeholder="Phone" value={participant.phone} onChange={(e) => setParticipant({ ...participant, phone: e.target.value })} className="mt-1 block w-full border border-slate-200 px-3 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700">Designation</label>
-                    <input placeholder="Designation" value={participant.designation} onChange={(e) => setParticipant({ ...participant, designation: e.target.value })} className="mt-1 block w-full border border-slate-200 px-3 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400" />
-                  </div>
-                </div>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700">Email</label>
+                        <input ref={emailRef} required placeholder="Email" type="email" value={participant.email} onChange={(e) => { setParticipant({ ...participant, email: e.target.value }); setError(null); }} className="mt-1 block w-full border border-slate-200 px-3 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400" />
+                      </div>
 
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700">Department</label>
-                    <input placeholder="Department" value={participant.department} onChange={(e) => setParticipant({ ...participant, department: e.target.value })} className="mt-1 block w-full border border-slate-200 px-3 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700">Company</label>
-                    <input
-                      placeholder="Company"
-                      value={sess?.company_name ?? participant.company}
-                      onChange={(e) => setParticipant({ ...participant, company: e.target.value })}
-                      className="mt-1 block w-full border border-slate-200 px-3 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400 bg-white"
-                      readOnly={!!sess}
-                    />
-                  </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-sm font-medium text-slate-700">Phone</label>
+                          <input placeholder="Phone" value={participant.phone} onChange={(e) => setParticipant({ ...participant, phone: e.target.value })} className="mt-1 block w-full border border-slate-200 px-3 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400" />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-slate-700">Designation</label>
+                          <input placeholder="Designation" value={participant.designation} onChange={(e) => setParticipant({ ...participant, designation: e.target.value })} className="mt-1 block w-full border border-slate-200 px-3 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400" />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-sm font-medium text-slate-700">Department</label>
+                          <input placeholder="Department" value={participant.department} onChange={(e) => setParticipant({ ...participant, department: e.target.value })} className="mt-1 block w-full border border-slate-200 px-3 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400" />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-slate-700">Company</label>
+                          <input
+                            placeholder="Company"
+                            value={sess?.company_name ?? participant.company}
+                            onChange={(e) => setParticipant({ ...participant, company: e.target.value })}
+                            className="mt-1 block w-full border border-slate-200 px-3 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-400 bg-white"
+                            readOnly={!!sess}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 <div>
@@ -296,6 +372,20 @@ export default function PublicFormClient({ session, questions, token }: any) {
                   </button>
                   <button type="button" onClick={() => { setParticipant({ name: '', email: '', phone: '', designation: '', department: '', company: '' }); setAnswers({}); }} className="px-4 py-2 border rounded-md text-slate-700">Reset</button>
                 </div>
+
+                {/* Modal to show shareable link or messages */}
+                {modal && (
+                  <SimpleModal
+                    open={!!modal.open}
+                    onClose={() => setModal(null)}
+                    title={modal.title}
+                    message={modal.message || ''}
+                    actionLabel={modal.actionLabel}
+                    onAction={() => {
+                      if (modal.onAction) modal.onAction();
+                    }}
+                  />
+                )}
               </form>
             </div>
           </div>

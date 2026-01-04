@@ -129,6 +129,13 @@ export default function SectionLeadDiamond({ pillars }: { pillars: Record<string
                 <p className="text-3xl font-bold text-slate-900">{round(value)}</p>
                 <p className={`text-xs font-semibold mt-1 ${colors.text}`}>{band?.label || "Unknown"}</p>
                 <p className="text-xs text-slate-600 mt-2 leading-snug">{band?.meaning || ""}</p>
+                {band?.coach && (
+                  <div className="mt-3">
+                    <div className={`rounded-md p-2 border ${colors.border}`} style={{ backgroundColor: colors.chartLight }}>
+                      <p className={`text-xs italic font-medium ${colors.text} mb-0`}>Coach: {band.coach}</p>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           );

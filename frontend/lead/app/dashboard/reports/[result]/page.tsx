@@ -8,10 +8,12 @@ import { getResult } from "@/app/lib/api";
 
 import SectionPie from "@/app/components/report/SectionPie";
 import SectionEnergy from "@/app/components/report/SectionEnergy";
+import SimpleModal from "@/app/components/ui/SimpleModal";
 import SectionQuadrants from "@/app/components/report/SectionQuadrants";
 import SectionLeadership from "@/app/components/report/SectionLeadership";
 import SectionJSON from "@/app/components/report/SectionJSON";
 import SectionLeadershipType from "@/app/components/report/SectionLeadershipType";
+import SectionAppendix from "@/app/components/report/SectionAppendix";
 
 export default function ResultPage() {
   const params = useParams();
@@ -23,6 +25,8 @@ export default function ResultPage() {
   const [isExporting, setIsExporting] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
   const reportRef = useRef<HTMLDivElement>(null);
+
+  const [modal, setModal] = useState<{ open: boolean; title?: string; message: string; okLabel?: string } | null>(null);
 
   const shareBase = useMemo(
     () => process.env.NEXT_PUBLIC_SHARE_BASE_URL || (typeof window !== "undefined" ? window.location.origin : ""),
@@ -84,7 +88,7 @@ export default function ResultPage() {
       await html2pdf().set(opt).from(element).save();
     } catch (error) {
       console.error("PDF export failed:", error);
-      alert("Failed to export PDF. Please try again.");
+      setModal({ open: true, title: "Export Failed", message: "Failed to export PDF. Please try again." });
     } finally {
       setIsExporting(false);
     }
@@ -97,7 +101,7 @@ export default function ResultPage() {
       setTimeout(() => setShareCopied(false), 2000);
     } catch (err) {
       console.error("Failed to copy link", err);
-      alert("Failed to copy link. Please try again.");
+      setModal({ open: true, title: "Copy Failed", message: "Failed to copy link. Please try again." });
     }
   };
 
@@ -181,18 +185,30 @@ export default function ResultPage() {
           </div>
 
           {/* ORDERED LAYERS */}
+          <SectionLeadershipType guna={report.guna_norm_pct} pillars={report.pillars} /> 
           <SectionLeadership pillars={report.pillars} />
           <SectionPie guna={report.guna_norm_pct} />
           <SectionEnergy guna={report.guna_norm_pct} />
           <SectionQuadrants matrices={report.matrices} />
-          <SectionLeadershipType guna={report.guna_norm_pct} pillars={report.pillars} /> 
-          <SectionJSON json={report} />
+          {/* <SectionJSON json={report} /> */}
+
+          {/* Appendix */}
+          <SectionAppendix />
 
           {/* PDF Footer - Only visible in PDF */}
           <div className="hidden print:block pdf-footer mt-12 pt-4 border-t-2 border-slate-200 text-center text-sm text-slate-600">
             <p className="font-medium">© {new Date().getFullYear()} LEAD Framework. All rights reserved.</p>
             <p className="mt-1">This report is confidential and intended solely for the named participant.</p>
           </div>
+
+          {/* Simple modal for in-app notices */}
+          <SimpleModal
+            open={!!modal?.open}
+            onClose={() => setModal(null)}
+            title={modal?.title}
+            message={modal?.message || ""}
+            okLabel={modal?.okLabel}
+          />
         </div>
       </main>
     </div>

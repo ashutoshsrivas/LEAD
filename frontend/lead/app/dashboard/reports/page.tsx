@@ -13,6 +13,7 @@ export default function ReportsPage() {
 
   const [sessions, setSessions] = useState<any[]>([]);
   const [selectedSession, setSelectedSession] = useState<string | null>(null);
+  const searchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
   const [reports, setReports] = useState<any[]>([]);
   const [loadingData, setLoadingData] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -37,7 +38,10 @@ export default function ReportsPage() {
         const s = await getSessions();
         if (!mounted) return;
         setSessions(s || []);
-        if (s && s.length) setSelectedSession(String(s[0].session_id));
+        // prefer query param if present
+        const q = searchParams?.get('session');
+        if (q) setSelectedSession(q);
+        else if (s && s.length) setSelectedSession(String(s[0].session_id));
       } catch (err: any) {
         setError(err.message || 'Failed to load sessions');
       }

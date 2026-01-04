@@ -4,7 +4,8 @@ import { useAuth } from '../../AuthContext';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState, useMemo } from 'react';
 import Sidebar from '../../components/Sidebar';
-import { getSessions, getParticipants } from '../../lib/api';
+import SimpleModal from '../../components/ui/SimpleModal';
+import { getSessions, getParticipants, exportSession } from '../../lib/api';
 
 export default function UsersPage() {
   const { user, logout, loading } = useAuth();
@@ -18,6 +19,8 @@ export default function UsersPage() {
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
+
+  const [modal, setModal] = useState<{ open: boolean; title?: string; message: string; okLabel?: string } | null>(null);
 
   useEffect(() => {
     if (!loading && !user) router.push('/login');
@@ -142,9 +145,27 @@ export default function UsersPage() {
                       <option value={10}>10 / page</option>
                       <option value={25}>25 / page</option>
                     </select>
-                  </div>
-                  <div className="text-sm text-slate-600">Total: {filteredTotal}</div>
-                </div>
+                              <button onClick={async () => {
+                                try {
+                                  if (!selectedSession) { setModal({ open: true, title: 'No session selected', message: 'Please select a session to export.' }); return; }
+                                  const data = await exportSession(selectedSession);
+                                  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                                  const url = URL.createObjectURL(blob);
+                                  const a = document.createElement('a');
+                                  a.href = url;
+                                  a.download = `session_${selectedSession}_export.json`;
+                                  document.body.appendChild(a);
+                                  a.click();
+                                  a.remove();
+                                  URL.revokeObjectURL(url);
+                                  setModal({ open: true, title: 'Export ready', message: 'Participant data exported as JSON and downloaded.' });
+                                } catch (err: any) {
+                                  setModal({ open: true, title: 'Export failed', message: (err?.message || String(err)) });
+                                }
+                              }} className="px-3 py-1 bg-emerald-600 text-white rounded text-sm">Export Participants</button>
+                            </div>
+                            <div className="text-sm text-slate-600">Total: {filteredTotal}</div>
+                          </div>
 
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm text-left">
@@ -153,8 +174,8 @@ export default function UsersPage() {
                         <th className="p-2">Name</th>
                         <th className="p-2">Email</th>
                         <th className="p-2">Company</th>
-                          <th className="p-2">Designation</th>
-                          <th className="p-2 text-right">Actions</th>
+                        <th className="p-2">Designation</th>
+                        <th className="p-2 text-right">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -176,10 +197,10 @@ export default function UsersPage() {
                                   const api = await import('../../lib/api');
                                   // call process endpoint which generates and stores result
                                   await api.generateReport(p.participant_id);
-                                  alert('Report generated. Redirecting to Reports page...');
-                                  router.push('/dashboard/reports');
+                                  setModal({ open: true, title: 'Success', message: 'Report generated. Redirecting to Reports page...' });
+                                  setTimeout(() => router.push('/dashboard/reports'), 800);
                                 } catch (err: any) {
-                                  alert('Failed to generate report: ' + (err?.message || err));
+                                  setModal({ open: true, title: 'Error', message: 'Failed to generate report: ' + (err?.message || err) });
                                 }
                               }}
                               className="px-2 py-1 bg-sky-600 text-white rounded text-sm"
@@ -215,6 +236,14 @@ export default function UsersPage() {
           </div>
         </main>
       </div>
+
+      <SimpleModal
+        open={!!modal?.open}
+        onClose={() => setModal(null)}
+        title={modal?.title}
+        message={modal?.message || ""}
+        okLabel={modal?.okLabel}
+      />
     </div>
   );
 }
