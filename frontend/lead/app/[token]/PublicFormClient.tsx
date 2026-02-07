@@ -327,7 +327,7 @@ export default function PublicFormClient({ session, questions, token }: any) {
 
                 <div>
                   <h3 className="text-base font-medium text-slate-800">Questions</h3>
-                  <div className="mt-3 space-y-4 max-h-80 overflow-y-auto pr-2">
+                  <div className={`mt-3 space-y-4 ${detailsOpen ? "max-h-80" : "max-h-[36rem]"} overflow-y-auto pr-2`}>
                     {(qs || []).map((q: any, idx: number) => {
                       const qid = String(q.question_id ?? q.item_id ?? idx);
                       const value = answers[qid] ?? 3;

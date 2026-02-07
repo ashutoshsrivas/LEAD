@@ -103,13 +103,13 @@ export default function Login() {
 
         <div className="text-center">
           <p className="text-slate-600 font-light">
-            New to LEAD?{' '}
-            <Link
+            {/* New to LEAD?{' '} */}
+            {/* <Link
               href="/signup"
               className="text-slate-800 hover:text-slate-600 transition-colors duration-200 font-medium"
             >
               Begin your journey
-            </Link>
+            </Link> */}
           </p>
         </div>
       </div>

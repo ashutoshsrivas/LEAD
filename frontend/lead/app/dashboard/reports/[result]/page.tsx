@@ -11,9 +11,9 @@ import SectionEnergy from "@/app/components/report/SectionEnergy";
 import SimpleModal from "@/app/components/ui/SimpleModal";
 import SectionQuadrants from "@/app/components/report/SectionQuadrants";
 import SectionLeadership from "@/app/components/report/SectionLeadership";
-import SectionJSON from "@/app/components/report/SectionJSON";
 import SectionLeadershipType from "@/app/components/report/SectionLeadershipType";
 import SectionAppendix from "@/app/components/report/SectionAppendix";
+import SectionExecutiveSummary from "@/app/components/report/SectionExecutiveSummary";
 
 export default function ResultPage() {
   const params = useParams();
@@ -48,7 +48,13 @@ export default function ResultPage() {
         typeof data?.result_json === "string"
           ? JSON.parse(data.result_json)
           : data.result_json;
-      setReport({ ...json, participant_name: data?.participant_name });
+      setReport({
+        ...json,
+        participant_name: data?.participant_name,
+        dominant_guna: data?.dominant_guna,
+        overall_band: data?.overall_band,
+        executive_summary: data?.executive_summary,
+      });
     })();
   }, []);
 
@@ -190,6 +196,12 @@ export default function ResultPage() {
           <SectionPie guna={report.guna_norm_pct} />
           <SectionEnergy guna={report.guna_norm_pct} />
           <SectionQuadrants matrices={report.matrices} />
+          <SectionExecutiveSummary
+            dominantGuna={report.dominant_guna}
+            overallBand={report.overall_band}
+            profile={report.executive_summary?.leadership_profile}
+            summary={report.executive_summary?.summary}
+          />
           {/* <SectionJSON json={report} /> */}
 
           {/* Appendix */}

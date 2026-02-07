@@ -1,20 +1,19 @@
 "use client";
 
-import { useParams, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import { getResult } from "@/app/lib/api";
 import SectionLeadership from "@/app/components/report/SectionLeadership";
 import SectionPie from "@/app/components/report/SectionPie";
 import SectionEnergy from "@/app/components/report/SectionEnergy";
 import SectionQuadrants from "@/app/components/report/SectionQuadrants";
 import SectionLeadershipType from "@/app/components/report/SectionLeadershipType";
-import SectionJSON from "@/app/components/report/SectionJSON";
 import SectionAppendix from "@/app/components/report/SectionAppendix";
-import SimpleModal from "@/app/components/ui/SimpleModal";;
+import SimpleModal from "@/app/components/ui/SimpleModal";
+import SectionExecutiveSummary from "@/app/components/report/SectionExecutiveSummary";
 
 export default function SharedReportPage() {
   const params = useParams();
-  const search = useSearchParams();
   const router = useRouter();
   const result = params.result;
 
@@ -24,11 +23,6 @@ export default function SharedReportPage() {
 
   const [modal, setModal] = useState<{ open: boolean; title?: string; message: string; okLabel?: string } | null>(null);
 
-  const shareBase = useMemo(
-    () => process.env.NEXT_PUBLIC_SHARE_BASE_URL || (typeof window !== "undefined" ? window.location.origin : ""),
-    []
-  );
-
   useEffect(() => {
     (async () => {
       try {
@@ -37,7 +31,13 @@ export default function SharedReportPage() {
           typeof data?.result_json === "string"
             ? JSON.parse(data.result_json)
             : data.result_json;
-        setReport({ ...json, participant_name: data?.participant_name });
+        setReport({
+          ...json,
+          participant_name: data?.participant_name,
+          dominant_guna: data?.dominant_guna,
+          overall_band: data?.overall_band,
+          executive_summary: data?.executive_summary,
+        });
       } catch (err) {
         console.error(err);
         router.replace("/404");
@@ -121,15 +121,46 @@ export default function SharedReportPage() {
 
       <main className="max-w-6xl mx-auto p-6">
         <div ref={reportRef} className="pdf-export-content">
+          {/* PDF Header */}
+          <div className="hidden print:block pdf-header mb-8 pb-4 border-b-2 border-slate-200">
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-4xl font-bold text-slate-800 mb-2">LEAD Framework</h1>
+                <p className="text-lg text-slate-600">Leadership Assessment & Development Report</p>
+              </div>
+              <div className="text-right">
+                <p className="text-sm text-slate-600">Generated: {new Date().toLocaleDateString()}</p>
+                <p className="text-sm text-slate-600">Report ID: #{result}</p>
+              </div>
+            </div>
+            {report.participant_name && (
+              <div className="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <p className="text-xl font-semibold text-blue-900">Participant: {report.participant_name}</p>
+              </div>
+            )}
+          </div>
+
+          {/* Ordered sections to mirror dashboard report */}
+          <SectionLeadershipType guna={report.guna_norm_pct} pillars={report.pillars} />
           <SectionLeadership pillars={report.pillars} />
           <SectionPie guna={report.guna_norm_pct} />
           <SectionEnergy guna={report.guna_norm_pct} />
           <SectionQuadrants matrices={report.matrices} />
-          <SectionLeadershipType guna={report.guna_norm_pct} pillars={report.pillars} />
-          <SectionJSON json={report} />
+          <SectionExecutiveSummary
+            dominantGuna={report.dominant_guna}
+            overallBand={report.overall_band}
+            profile={report.executive_summary?.leadership_profile}
+            summary={report.executive_summary?.summary}
+          />
 
           {/* Appendix */}
           <SectionAppendix />
+
+          {/* PDF Footer */}
+          <div className="hidden print:block pdf-footer mt-12 pt-4 border-t-2 border-slate-200 text-center text-sm text-slate-600">
+            <p className="font-medium">© {new Date().getFullYear()} LEAD Framework. All rights reserved.</p>
+            <p className="mt-1">This report is confidential and intended solely for the named participant.</p>
+          </div>
 
           {/* Simple modal for in-app notices */}
           <SimpleModal

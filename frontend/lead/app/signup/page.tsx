@@ -32,7 +32,7 @@ export default function Signup() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50 p-4">
-      <div className="w-full max-w-md space-y-8">
+      {/* <div className="w-full max-w-md space-y-8">
         <div className="text-center space-y-4">
           <h1 className="text-3xl font-light text-slate-800 tracking-wide">
             Begin Your Journey
@@ -151,7 +151,7 @@ export default function Signup() {
             </Link>
           </p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

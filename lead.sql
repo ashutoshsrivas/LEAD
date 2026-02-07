@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 27, 2025 at 07:20 PM
+-- Generation Time: Feb 03, 2026 at 11:17 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -35,6 +35,60 @@ CREATE TABLE `admin_users` (
   `role` enum('admin','superadmin') DEFAULT 'admin',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `executivesummary`
+--
+
+CREATE TABLE `executivesummary` (
+  `dominant_guna` varchar(4) DEFAULT NULL,
+  ` overall_band` varchar(18) DEFAULT NULL,
+  ` leadership_profile` varchar(25) DEFAULT NULL,
+  `Summary` varchar(676) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `executivesummary`
+--
+
+INSERT INTO `executivesummary` (`dominant_guna`, ` overall_band`, ` leadership_profile`, `Summary`) VALUES
+('S ', ' Risk ', ' Ethical Conformer ', 'This Sattva-dominant profile reflects ethical intent constrained by excessive caution. From a Loka-saṅgraha lens, the leader wishes to avoid harm to the collective but hesitates to take ownership when welfare demands moral courage. Equanimity appears as rule-based fairness rather than inner balance, leading to ethical passivity under pressure. Association is authority-dependent, with reliance on external validation instead of inner awareness. Dharma is respected in form but weakened in Direction and Daman, as self-restraint turns into inaction. Growth requires confidence-building, ethical decision ownership, and guided exposure to ambiguity.'),
+('S ', ' Development ', ' Emerging Steward ', 'This profile shows growing alignment with collective welfare, as the leader genuinely wishes to act responsibly and fairly. Loka-saṅgraha is present in intent but inconsistently translated into action under pressure. Equanimity manifests as empathy and concern for fairness, though hesitation arises in difficult trade-offs. The leader values Association, actively seeking mentorship and guidance, sometimes at the cost of decisiveness. Dharma is awakening, but Direction and Daman need strengthening through bounded authority and repeated decision practice.'),
+('S ', ' Balanced ', ' Reliable Custodian ', 'This leadership profile reflects a Sattva-oriented commitment to collective welfare, naturally aligning actions with Loka-saṅgraha through stewardship and trust-building. Equanimity is expressed as calm, fairness, and ethical clarity, creating psychological safety across stakeholders. The leader relies on healthy Association through inclusive dialogue and trusted counsel, though this can slow assertion in conflict. Dharma anchors conduct through integrity and self-restraint, while Daman must be consciously activated to introduce urgency when circumstances demand speed. This profile excels in governance and culture roles when complemented by execution-focused partners.'),
+('S ', ' Strength ', ' Principled Steward ', 'This profile demonstrates mature alignment with collective welfare, balancing service with responsibility. Loka-saṅgraha guides decisions toward long-term institutional health rather than personal gain. Equanimity enables composed judgment and moral clarity under pressure, while empathy remains intact. Association is selective and wise, drawing strength from principled mentors. Dharma is strong in integrity and Direction, though Daman must prevent over-deliberation by setting clear decision boundaries.'),
+('S ', ' Transformational ', ' Moral Anchor ', 'This leadership profile embodies Loka-saṅgraha at scale, shaping culture and ethical direction through personal example. Equanimity is deeply internalized, allowing courageous yet compassionate decisions in complex trade-offs. Association operates as moral influence, with others seeking guidance and anchoring from this leader. Dharma is fully integrated, with clear Direction and disciplined Daman, though flexibility must be preserved to avoid rigidity. Ideal for board-facing and legacy-defining roles.'),
+('R ', ' Risk ', ' Volatile Driver ', 'This Rajas-dominant profile channels energy toward outcomes with little regard for collective balance. Loka-saṅgraha is overshadowed by urgency, leading to short-term wins but long-term strain. Equanimity is low, with emotional reactivity and ethical shortcuts under pressure. Association is transactional, amplifying intensity rather than awareness. Dharma lacks restraint, as Direction exists without Daman. Immediate structure and self-regulation coaching are essential.'),
+('R ', ' Development ', ' Forceful Executor ', 'This profile shows strong drive to deliver results, partially aligned with collective goals. Loka-saṅgraha appears as performance contribution, but broader welfare is inconsistently considered. Equanimity fluctuates, with speed overriding reflection. Association is task-focused, limiting mentoring depth. Dharma exists as ownership, but Direction and Daman require strengthening through prioritization and ethical guardrails.'),
+('R ', ' Balanced ', ' Results Manager ', 'This leadership style balances ambition with functional responsibility. Loka-saṅgraha is served through reliable delivery, though often within short-term horizons. Equanimity is moderate, enabling pragmatic decisions without emotional collapse. Association is operational, not developmental. Dharma guides accountability, but deeper purpose and restraint must be cultivated to avoid short-termism.'),
+('R ', ' Strength ', ' Momentum Leader ', 'This profile channels Rajas constructively toward collective progress. Loka-saṅgraha is expressed through sustained delivery and mobilization of teams. Equanimity allows recovery after setbacks, though pressure accumulation is a risk. Association energizes execution networks more than reflection. Dharma is strong in Direction, but Daman must regulate pace to prevent burnout.'),
+('R ', ' Transformational ', ' Growth Catalyst ', 'This leadership profile drives large-scale growth aligned with collective ambition. Loka-saṅgraha is interpreted as expansion and opportunity creation. Equanimity supports rapid learning, though emotional load remains high. Association builds dynamic ecosystems for change. Dharma is expressed through bold Direction, requiring strong Daman to prevent overreach.'),
+('T ', ' Risk ', ' Passive Operator ', 'This Tamas-dominant profile prioritizes safety and routine over collective progress. Loka-saṅgraha is narrowly interpreted as harm avoidance, leading to stagnation. Equanimity appears as emotional withdrawal rather than balance. Association is minimal, limiting awareness. Dharma lacks Direction and Daman, resulting in deferred responsibility. Immediate activation and accountability are required.'),
+('T ', ' Development ', ' Cautious Maintainer ', 'This profile values stability and predictability, offering quiet support to systems. Loka-saṅgraha is served through maintenance rather than advancement. Equanimity is present but passive. Association is limited, reducing exposure to change catalysts. Dharma requires clearer Direction to move beyond inertia.'),
+('T ', ' Balanced ', ' Steady Stabilizer ', 'This leadership style supports collective welfare through reliability and calm continuity. Loka-saṅgraha is expressed as risk containment. Equanimity provides emotional steadiness in uncertainty. Association is functional but narrow. Dharma anchors consistency, though adaptability must be consciously developed.'),
+('T ', ' Strength ', ' Endurance Leader ', 'This profile sustains collective stability during prolonged pressure. Loka-saṅgraha is fulfilled through persistence and reliability. Equanimity is strong, preventing emotional contagion. Association offers dependable support. Dharma emphasizes Daman and discipline, but innovation must be supplemented externally.'),
+('T ', ' Transformational ', ' Institutional Anchor ', 'This leadership profile preserves collective integrity during crises. Loka-saṅgraha is expressed as survival and continuity. Equanimity provides calm leadership under extreme uncertainty. Association reinforces trust networks. Dharma is deeply rooted in restraint and duty, though renewal may be resisted.'),
+('SR ', ' Risk ', ' Misaligned Activator ', 'This profile reflects inner tension between intention and execution. From a Loka-saṅgraha lens, the leader wishes to contribute to collective welfare but lacks stable ethical anchoring under pressure, causing inconsistent impact. Equanimity fluctuates, leading to swings between urgency and hesitation. Association is present but unfiltered, amplifying confusion rather than clarity. Dharma is sensed but weak in Direction and Daman, resulting in uneven self-restraint. Growth requires values realignment, disciplined reflection, and clearer decision ownership.'),
+('SR ', ' Development ', ' Dual-Potential Leader ', 'This leadership profile carries both clarity and drive, though they are not yet integrated. Loka-saṅgraha appears as a sincere desire to serve outcomes and people, but execution varies with pressure. Equanimity is emerging, enabling learning from feedback, yet emotional steadiness is inconsistent. Association is actively sought, creating learning agility but also fragmentation. Dharma is awakening, and stronger Direction with structured Daman will help translate potential into consistency.'),
+('SR ', ' Balanced ', ' Integrated Operator ', 'This profile demonstrates workable integration of purpose and execution. Loka-saṅgraha is expressed through reliable contribution to collective goals. Equanimity supports balanced judgment in routine pressure, though it weakens under sustained stress. Association is functional and supportive, providing operational clarity. Dharma guides action with reasonable Direction, while Daman must guard against gradual drift. Suitable for mid-scale leadership roles.'),
+('SR ', ' Strength ', ' Precision Leader ', 'This leadership profile aligns values with disciplined execution. Loka-saṅgraha is served through accurate delivery and ethical reliability. Equanimity enables firm yet fair decisions under pressure. Association is selective and performance-oriented. Dharma is strong in Direction and Daman, allowing timely, principled action. The main risk lies in pace strain, requiring recovery mechanisms.'),
+('SR ', ' Transformational ', ' Strategic Integrator ', 'This profile integrates ethics, execution, and influence at scale. Loka-saṅgraha is expressed through enterprise-level alignment and impact. Equanimity allows adaptation without loss of moral clarity. Association becomes an ecosystem of influence. Dharma is deeply internalized, though impatience with slower systems may arise. Strong CXO succession potential.'),
+('ST ', ' Risk ', ' Withdrawn Idealist ', 'This profile holds strong values but avoids leadership ownership. Loka-saṅgraha remains aspirational rather than enacted. Equanimity manifests as emotional withdrawal rather than balance. Association is passive, limiting awareness and support. Dharma lacks Direction and Daman, resulting in inaction. Activation coaching is required.'),
+('ST ', ' Development ', ' Quiet Custodian ', 'This leader preserves ethical continuity quietly. Loka-saṅgraha is served through loyalty and support rather than initiative. Equanimity is stable but inward. Association is limited to familiar circles. Dharma is present but under-activated, requiring gentle Direction to mobilize action.'),
+('ST ', ' Balanced ', ' Value-Based Stabilizer ', 'This profile maintains ethical continuity with steady operations. Loka-saṅgraha is expressed through consistency and trust. Equanimity supports fairness and calm. Association is compliant and narrow. Dharma anchors reliability, though change resistance must be managed.'),
+('ST ', ' Strength ', ' Principled Stabilizer ', 'This leader anchors ethics while sustaining reliable performance. Loka-saṅgraha is expressed through long-term trust. Equanimity ensures fairness without emotional volatility. Association is stable and principled. Dharma is strong, though adaptability benefits from external partners.'),
+('ST ', ' Transformational ', ' Ethical Guardian ', 'This profile safeguards institutional values during major transitions. Loka-saṅgraha is protected through ethical vigilance. Equanimity allows composed stewardship under pressure. Association reinforces governance networks. Dharma prioritizes integrity over speed, ideal for governance-heavy change.'),
+('RT ', ' Risk ', ' Force Without Direction ', 'This leadership applies pressure without ethical or emotional restraint. Loka-saṅgraha is compromised by coercive outcomes. Equanimity is absent, leading to reactive control. Association becomes fear-based. Dharma lacks Daman, creating toxic risk. Immediate correction required.'),
+('RT ', ' Development ', ' Heavy Enforcer ', 'This profile drives compliance through control. Loka-saṅgraha is narrowly interpreted as order. Equanimity is functional but rigid. Association relies on authority, limiting trust. Dharma needs empathy and restraint to prevent burnout.'),
+('RT ', ' Balanced ', ' Command Operator ', 'This leadership maintains output through firm control. Loka-saṅgraha is served through stability. Equanimity supports decisiveness without collapse. Association is hierarchical. Dharma enforces discipline, though engagement is limited.'),
+('RT ', ' Strength ', ' Resilient Executor ', 'This profile sustains results under adversity with discipline. Loka-saṅgraha is served through survival and delivery. Equanimity enables endurance. Association is loyal but narrow. Dharma emphasizes Daman, though flexibility should increase.'),
+('RT ', ' Transformational ', ' Crisis Commander ', 'This leader drives survival and recovery in extreme conditions. Loka-saṅgraha is interpreted as urgent preservation. Equanimity is situational. Association mobilizes command networks. Dharma enforces direction and restraint, but long-term cultural repair is required.'),
+('SRT ', ' Risk ', ' Indecisive Balancer ', 'This profile hesitates between clarity, action, and stability. Loka-saṅgraha intent exists but stalls in execution. Equanimity becomes over-analysis. Association increases inputs but reduces ownership. Dharma lacks Direction, requiring decisiveness training.'),
+('SRT ', ' Development ', ' Emerging Integrator ', 'This leader shows early integration of balance and action. Loka-saṅgraha guides intent, but consistency varies. Equanimity supports learning. Association is exploratory. Dharma needs firmer Direction and Daman to stabilize leadership.'),
+('SRT ', ' Balanced ', ' Adaptive Manager ', 'This profile balances judgment, execution, and stability. Loka-saṅgraha is expressed through adaptable leadership. Equanimity supports context-sensitive decisions. Association is functional. Dharma maintains reliability, though urgency can be under-communicated.'),
+('SRT ', ' Strength ', ' Balanced Integrator ', 'This leader integrates clarity, action, and restraint at scale. Loka-saṅgraha is expressed through enterprise reliability. Equanimity enables composure in complexity. Association supports cross-functional trust. Dharma is strong, though sharper urgency signaling enhances impact.'),
+('SRT ', ' Transformational ', ' Enterprise Leader ', 'This profile demonstrates readiness for enterprise-wide responsibility. Loka-saṅgraha is enacted through systemic alignment. Equanimity allows calm leadership at scale. Association becomes a leadership ecosystem. Dharma integrates Direction and Daman, marking CXO succession readiness.');
 
 -- --------------------------------------------------------
 
@@ -195,7 +249,8 @@ CREATE TABLE `participants` (
 
 INSERT INTO `participants` (`participant_id`, `session_id`, `name`, `email`, `phone`, `designation`, `department`, `company`, `created_at`) VALUES
 (1, 1, 'ashu', 'ashu@g.com', '123', '123', '12', 'Test', '2025-12-14 13:13:35'),
-(2, 1, 'Test', 'as@g.com', '12321324', '123', '123', 'Test', '2025-12-14 17:27:48');
+(2, 1, 'Test', 'as@g.com', '12321324', '123', '123', 'Test', '2025-12-14 17:27:48'),
+(3, 2, 'a', 'a@g.com', 'a', 'a', 'a', 'Trial', '2026-01-04 06:52:14');
 
 -- --------------------------------------------------------
 
@@ -687,7 +742,136 @@ INSERT INTO `responses` (`response_id`, `participant_id`, `question_id`, `answer
 (255, 2, 'QTC029  ', 3, '2025-12-14 17:27:48'),
 (256, 2, 'QTC036', 3, '2025-12-14 17:27:48'),
 (257, 2, 'GLDQ002', 3, '2025-12-14 17:27:48'),
-(258, 2, 'GLDQ001', 3, '2025-12-14 17:27:48');
+(258, 2, 'GLDQ001', 3, '2025-12-14 17:27:48'),
+(259, 3, 'GLDQ001', 5, '2026-01-04 06:52:14'),
+(260, 3, 'GLDQ002', 5, '2026-01-04 06:52:14'),
+(261, 3, 'GLDQ003', 5, '2026-01-04 06:52:14'),
+(262, 3, 'GLDQ004', 5, '2026-01-04 06:52:14'),
+(263, 3, 'GLDQ005', 5, '2026-01-04 06:52:14'),
+(264, 3, 'GLDQ006', 5, '2026-01-04 06:52:14'),
+(265, 3, 'GLDQ007', 5, '2026-01-04 06:52:14'),
+(266, 3, 'GLDQ008', 5, '2026-01-04 06:52:14'),
+(267, 3, 'GLDQ009', 5, '2026-01-04 06:52:14'),
+(268, 3, 'GLDQ010', 5, '2026-01-04 06:52:14'),
+(269, 3, 'GLDQ011', 5, '2026-01-04 06:52:14'),
+(270, 3, 'GLDQ012', 5, '2026-01-04 06:52:14'),
+(271, 3, 'GLDQ013', 5, '2026-01-04 06:52:14'),
+(272, 3, 'GLDQ014', 5, '2026-01-04 06:52:14'),
+(273, 3, 'GLDQ015', 5, '2026-01-04 06:52:14'),
+(274, 3, 'GLDQ016', 5, '2026-01-04 06:52:14'),
+(275, 3, 'GLDQ017', 5, '2026-01-04 06:52:14'),
+(276, 3, 'GLDQ018', 5, '2026-01-04 06:52:14'),
+(277, 3, 'GLDQ019', 5, '2026-01-04 06:52:14'),
+(278, 3, 'GLDQ020', 5, '2026-01-04 06:52:14'),
+(279, 3, 'GLDQ021', 5, '2026-01-04 06:52:14'),
+(280, 3, 'QAO003  ', 1, '2026-01-04 06:52:14'),
+(281, 3, 'QAO004  ', 1, '2026-01-04 06:52:14'),
+(282, 3, 'QAO006  ', 1, '2026-01-04 06:52:14'),
+(283, 3, 'QAO010  ', 1, '2026-01-04 06:52:14'),
+(284, 3, 'QAO011  ', 1, '2026-01-04 06:52:14'),
+(285, 3, 'QAO012  ', 1, '2026-01-04 06:52:14'),
+(286, 3, 'QAO014  ', 1, '2026-01-04 06:52:14'),
+(287, 3, 'QAO015  ', 1, '2026-01-04 06:52:14'),
+(288, 3, 'QAO016  ', 1, '2026-01-04 06:52:14'),
+(289, 3, 'QAO017  ', 1, '2026-01-04 06:52:14'),
+(290, 3, 'QAO019  ', 1, '2026-01-04 06:52:14'),
+(291, 3, 'QAO024  ', 1, '2026-01-04 06:52:14'),
+(292, 3, 'QAO025  ', 1, '2026-01-04 06:52:14'),
+(293, 3, 'QAO035', 1, '2026-01-04 06:52:14'),
+(294, 3, 'QAO036', 1, '2026-01-04 06:52:14'),
+(295, 3, 'QAO037', 1, '2026-01-04 06:52:14'),
+(296, 3, 'QAO038', 1, '2026-01-04 06:52:14'),
+(297, 3, 'QAO039', 1, '2026-01-04 06:52:14'),
+(298, 3, 'QDD001', 1, '2026-01-04 06:52:14'),
+(299, 3, 'QDD002', 1, '2026-01-04 06:52:14'),
+(300, 3, 'QDD004', 1, '2026-01-04 06:52:14'),
+(301, 3, 'QDD005', 1, '2026-01-04 06:52:14'),
+(302, 3, 'QDD006', 1, '2026-01-04 06:52:14'),
+(303, 3, 'QDD007', 1, '2026-01-04 06:52:14'),
+(304, 3, 'QDD008', 1, '2026-01-04 06:52:14'),
+(305, 3, 'QDD010', 1, '2026-01-04 06:52:14'),
+(306, 3, 'QDD011', 1, '2026-01-04 06:52:14'),
+(307, 3, 'QDD014', 1, '2026-01-04 06:52:14'),
+(308, 3, 'QDD018', 1, '2026-01-04 06:52:14'),
+(309, 3, 'QDD019', 1, '2026-01-04 06:52:14'),
+(310, 3, 'QDD024', 1, '2026-01-04 06:52:14'),
+(311, 3, 'QDD035', 1, '2026-01-04 06:52:14'),
+(312, 3, 'QDD036', 1, '2026-01-04 06:52:14'),
+(313, 3, 'QDD037', 1, '2026-01-04 06:52:14'),
+(314, 3, 'QDD038', 3, '2026-01-04 06:52:14'),
+(315, 3, 'QDD039', 3, '2026-01-04 06:52:14'),
+(316, 3, 'QFR001', 3, '2026-01-04 06:52:14'),
+(317, 3, 'QFR002', 3, '2026-01-04 06:52:14'),
+(318, 3, 'QFR003', 3, '2026-01-04 06:52:14'),
+(319, 3, 'QFR004', 3, '2026-01-04 06:52:14'),
+(320, 3, 'QFR005', 1, '2026-01-04 06:52:14'),
+(321, 3, 'QFR006', 1, '2026-01-04 06:52:14'),
+(322, 3, 'QFR007', 5, '2026-01-04 06:52:14'),
+(323, 3, 'QFR009', 2, '2026-01-04 06:52:14'),
+(324, 3, 'QFR011', 1, '2026-01-04 06:52:14'),
+(325, 3, 'QFR013', 1, '2026-01-04 06:52:14'),
+(326, 3, 'QFR020', 1, '2026-01-04 06:52:14'),
+(327, 3, 'QFR024', 1, '2026-01-04 06:52:14'),
+(328, 3, 'QFR028', 1, '2026-01-04 06:52:14'),
+(329, 3, 'QFR035', 2, '2026-01-04 06:52:14'),
+(330, 3, 'QFR036', 1, '2026-01-04 06:52:14'),
+(331, 3, 'QFR037', 1, '2026-01-04 06:52:14'),
+(332, 3, 'QFR038', 1, '2026-01-04 06:52:14'),
+(333, 3, 'QFR039', 3, '2026-01-04 06:52:14'),
+(334, 3, 'QKA001  ', 3, '2026-01-04 06:52:14'),
+(335, 3, 'QKA004  ', 3, '2026-01-04 06:52:14'),
+(336, 3, 'QKA005  ', 3, '2026-01-04 06:52:14'),
+(337, 3, 'QKA006  ', 4, '2026-01-04 06:52:14'),
+(338, 3, 'QKA007  ', 2, '2026-01-04 06:52:14'),
+(339, 3, 'QKA010  ', 3, '2026-01-04 06:52:14'),
+(340, 3, 'QKA011  ', 3, '2026-01-04 06:52:14'),
+(341, 3, 'QKA012  ', 2, '2026-01-04 06:52:14'),
+(342, 3, 'QKA014  ', 4, '2026-01-04 06:52:14'),
+(343, 3, 'QKA017  ', 4, '2026-01-04 06:52:14'),
+(344, 3, 'QKA018  ', 4, '2026-01-04 06:52:14'),
+(345, 3, 'QKA020  ', 3, '2026-01-04 06:52:14'),
+(346, 3, 'QKA024  ', 3, '2026-01-04 06:52:14'),
+(347, 3, 'QKA028  ', 4, '2026-01-04 06:52:14'),
+(348, 3, 'QKA035', 2, '2026-01-04 06:52:14'),
+(349, 3, 'QKA036', 3, '2026-01-04 06:52:14'),
+(350, 3, 'QKA037', 3, '2026-01-04 06:52:14'),
+(351, 3, 'QKA038', 3, '2026-01-04 06:52:14'),
+(352, 3, 'QSC002', 3, '2026-01-04 06:52:14'),
+(353, 3, 'QSC003', 3, '2026-01-04 06:52:14'),
+(354, 3, 'QSC004', 3, '2026-01-04 06:52:14'),
+(355, 3, 'QSC007', 4, '2026-01-04 06:52:14'),
+(356, 3, 'QSC008', 3, '2026-01-04 06:52:14'),
+(357, 3, 'QSC009', 2, '2026-01-04 06:52:14'),
+(358, 3, 'QSC013', 3, '2026-01-04 06:52:14'),
+(359, 3, 'QSC015', 4, '2026-01-04 06:52:14'),
+(360, 3, 'QSC017', 2, '2026-01-04 06:52:14'),
+(361, 3, 'QSC018', 3, '2026-01-04 06:52:14'),
+(362, 3, 'QSC019', 3, '2026-01-04 06:52:14'),
+(363, 3, 'QSC022', 3, '2026-01-04 06:52:14'),
+(364, 3, 'QSC033', 2, '2026-01-04 06:52:14'),
+(365, 3, 'QSC035', 3, '2026-01-04 06:52:14'),
+(366, 3, 'QSC036', 3, '2026-01-04 06:52:14'),
+(367, 3, 'QSC037', 3, '2026-01-04 06:52:14'),
+(368, 3, 'QSC038', 3, '2026-01-04 06:52:14'),
+(369, 3, 'QSC039', 3, '2026-01-04 06:52:14'),
+(370, 3, 'QTC001  ', 4, '2026-01-04 06:52:14'),
+(371, 3, 'QTC005  ', 2, '2026-01-04 06:52:14'),
+(372, 3, 'QTC006  ', 5, '2026-01-04 06:52:14'),
+(373, 3, 'QTC007  ', 1, '2026-01-04 06:52:14'),
+(374, 3, 'QTC008  ', 3, '2026-01-04 06:52:14'),
+(375, 3, 'QTC009  ', 2, '2026-01-04 06:52:14'),
+(376, 3, 'QTC010  ', 2, '2026-01-04 06:52:14'),
+(377, 3, 'QTC014  ', 2, '2026-01-04 06:52:14'),
+(378, 3, 'QTC015  ', 3, '2026-01-04 06:52:14'),
+(379, 3, 'QTC017  ', 3, '2026-01-04 06:52:14'),
+(380, 3, 'QTC018  ', 3, '2026-01-04 06:52:14'),
+(381, 3, 'QTC019  ', 3, '2026-01-04 06:52:14'),
+(382, 3, 'QTC020  ', 3, '2026-01-04 06:52:14'),
+(383, 3, 'QTC021  ', 3, '2026-01-04 06:52:14'),
+(384, 3, 'QTC024  ', 3, '2026-01-04 06:52:14'),
+(385, 3, 'QTC025  ', 3, '2026-01-04 06:52:14'),
+(386, 3, 'QTC029  ', 3, '2026-01-04 06:52:14'),
+(387, 3, 'QTC036', 3, '2026-01-04 06:52:14');
 
 -- --------------------------------------------------------
 
@@ -708,7 +892,9 @@ CREATE TABLE `results` (
 
 INSERT INTO `results` (`result_id`, `participant_id`, `result_json`, `generated_at`) VALUES
 (1, 1, '{\"guna_T\":{\"Rajas\":28.571428571428573,\"Sattva\":60.714285714285715,\"Tamas\":25},\"guna_norm_pct\":{\"Rajas\":25,\"Sattva\":53.125,\"Tamas\":21.875},\"matrices\":[{\"name\":\"Selflessness vs. Clarity\",\"quadrant\":\"Q3\",\"x\":44.44444444444444,\"y\":47.22222222222222},{\"name\":\"Time vs. Collective\",\"quadrant\":\"Q1\",\"x\":66.66666666666667,\"y\":58.333333333333336},{\"name\":\"Knowledge vs. Application\",\"quadrant\":\"Q2\",\"x\":44.44444444444444,\"y\":72.22222222222223},{\"name\":\"Association vs. Openness\",\"quadrant\":\"Q1\",\"x\":58.333333333333336,\"y\":52.77777777777778},{\"name\":\"Fear vs. Responsibility\",\"quadrant\":\"Q1\",\"x\":61.111111111111114,\"y\":63.888888888888886},{\"name\":\"Dharma vs. Desire\",\"quadrant\":\"Q4\",\"x\":66.66666666666667,\"y\":47.22222222222222}],\"matrix_strengths\":[\"Time vs. Collective — High Strength\",\"Association vs. Openness — High Strength\",\"Fear vs. Responsibility — High Strength\"],\"matrix_watchouts\":[\"Selflessness vs. Clarity — Development Area\",\"Knowledge vs. Application — Development Area\",\"Dharma vs. Desire — Development Area\"],\"name\":\"ashu\",\"overall_T\":51.53909916723868,\"overall_raw\":53.87596899224806,\"participant_id\":1,\"pillars\":{\"A\":47.64150943396226,\"D\":53.98936170212766,\"E\":52.56410256410256,\"L\":57.6530612244898}}', '2025-12-14 13:25:50'),
-(2, 2, '{\"guna_T\":{\"Rajas\":71.42857142857143,\"Sattva\":50,\"Tamas\":0},\"guna_norm_pct\":{\"Rajas\":58.82352941176471,\"Sattva\":41.17647058823529,\"Tamas\":0},\"matrices\":[{\"name\":\"Selflessness vs. Clarity\",\"quadrant\":\"Q2\",\"x\":47.22222222222222,\"y\":52.77777777777778},{\"name\":\"Time vs. Collective\",\"quadrant\":\"Q1\",\"x\":55.55555555555556,\"y\":50},{\"name\":\"Knowledge vs. Application\",\"quadrant\":\"Q1\",\"x\":52.77777777777778,\"y\":58.333333333333336},{\"name\":\"Association vs. Openness\",\"quadrant\":\"Q4\",\"x\":52.77777777777778,\"y\":38.888888888888886},{\"name\":\"Fear vs. Responsibility\",\"quadrant\":\"Q1\",\"x\":63.888888888888886,\"y\":52.77777777777778},{\"name\":\"Dharma vs. Desire\",\"quadrant\":\"Q1\",\"x\":63.888888888888886,\"y\":63.888888888888886}],\"matrix_strengths\":[\"Time vs. Collective — High Strength\",\"Knowledge vs. Application — High Strength\",\"Fear vs. Responsibility — High Strength\",\"Dharma vs. Desire — High Strength\"],\"matrix_watchouts\":[\"Selflessness vs. Clarity — Development Area\",\"Association vs. Openness — Development Area\"],\"name\":\"Test\",\"overall_T\":50.82425335856254,\"overall_raw\":52.13178294573643,\"participant_id\":2,\"pillars\":{\"A\":45.283018867924525,\"D\":52.659574468085104,\"E\":52.243589743589745,\"L\":52.55102040816327}}', '2025-12-14 17:28:17');
+(2, 2, '{\"guna_T\":{\"Rajas\":71.42857142857143,\"Sattva\":50,\"Tamas\":0},\"guna_norm_pct\":{\"Rajas\":58.82352941176471,\"Sattva\":41.17647058823529,\"Tamas\":0},\"matrices\":[{\"name\":\"Selflessness vs. Clarity\",\"quadrant\":\"Q2\",\"x\":47.22222222222222,\"y\":52.77777777777778},{\"name\":\"Time vs. Collective\",\"quadrant\":\"Q1\",\"x\":55.55555555555556,\"y\":50},{\"name\":\"Knowledge vs. Application\",\"quadrant\":\"Q1\",\"x\":52.77777777777778,\"y\":58.333333333333336},{\"name\":\"Association vs. Openness\",\"quadrant\":\"Q4\",\"x\":52.77777777777778,\"y\":38.888888888888886},{\"name\":\"Fear vs. Responsibility\",\"quadrant\":\"Q1\",\"x\":63.888888888888886,\"y\":52.77777777777778},{\"name\":\"Dharma vs. Desire\",\"quadrant\":\"Q1\",\"x\":63.888888888888886,\"y\":63.888888888888886}],\"matrix_strengths\":[\"Time vs. Collective — High Strength\",\"Knowledge vs. Application — High Strength\",\"Fear vs. Responsibility — High Strength\",\"Dharma vs. Desire — High Strength\"],\"matrix_watchouts\":[\"Selflessness vs. Clarity — Development Area\",\"Association vs. Openness — Development Area\"],\"name\":\"Test\",\"overall_T\":50.82425335856254,\"overall_raw\":52.13178294573643,\"participant_id\":2,\"pillars\":{\"A\":45.283018867924525,\"D\":52.659574468085104,\"E\":52.243589743589745,\"L\":52.55102040816327}}', '2025-12-14 17:28:17'),
+(3, 2, '{\"guna_T\":{\"Rajas\":71.42857142857143,\"Sattva\":50,\"Tamas\":0},\"guna_norm_pct\":{\"Rajas\":58.82352941176471,\"Sattva\":41.17647058823529,\"Tamas\":0},\"matrices\":[{\"name\":\"Selflessness vs. Clarity\",\"quadrant\":\"Q2\",\"x\":47.22222222222222,\"y\":52.77777777777778},{\"name\":\"Time vs. Collective\",\"quadrant\":\"Q1\",\"x\":55.55555555555556,\"y\":50},{\"name\":\"Knowledge vs. Application\",\"quadrant\":\"Q1\",\"x\":52.77777777777778,\"y\":58.333333333333336},{\"name\":\"Association vs. Openness\",\"quadrant\":\"Q4\",\"x\":52.77777777777778,\"y\":38.888888888888886},{\"name\":\"Fear vs. Responsibility\",\"quadrant\":\"Q1\",\"x\":63.888888888888886,\"y\":52.77777777777778},{\"name\":\"Dharma vs. Desire\",\"quadrant\":\"Q1\",\"x\":63.888888888888886,\"y\":63.888888888888886}],\"matrix_strengths\":[\"Time vs. Collective — High Strength\",\"Knowledge vs. Application — High Strength\",\"Fear vs. Responsibility — High Strength\",\"Dharma vs. Desire — High Strength\"],\"matrix_watchouts\":[\"Selflessness vs. Clarity — Development Area\",\"Association vs. Openness — Development Area\"],\"name\":\"Test\",\"overall_T\":50.82425335856254,\"overall_raw\":52.13178294573643,\"participant_id\":2,\"pillars\":{\"A\":45.283018867924525,\"D\":52.659574468085104,\"E\":52.243589743589745,\"L\":52.55102040816327}}', '2025-12-31 06:05:21'),
+(4, 3, '{\"guna_T\":{\"Rajas\":71.42857142857143,\"Sattva\":100,\"Tamas\":0},\"guna_norm_pct\":{\"Rajas\":41.666666666666664,\"Sattva\":58.33333333333333,\"Tamas\":0},\"matrices\":[{\"name\":\"Selflessness vs. Clarity\",\"quadrant\":\"Q1\",\"x\":55.55555555555556,\"y\":52.77777777777778},{\"name\":\"Time vs. Collective\",\"quadrant\":\"Q3\",\"x\":47.22222222222222,\"y\":44.44444444444444},{\"name\":\"Knowledge vs. Application\",\"quadrant\":\"Q4\",\"x\":55.55555555555556,\"y\":44.44444444444444},{\"name\":\"Association vs. Openness\",\"quadrant\":\"Q3\",\"x\":22.22222222222222,\"y\":22.22222222222222},{\"name\":\"Fear vs. Responsibility\",\"quadrant\":\"Q4\",\"x\":50,\"y\":33.333333333333336},{\"name\":\"Dharma vs. Desire\",\"quadrant\":\"Q3\",\"x\":11.11111111111111,\"y\":22.22222222222222}],\"matrix_strengths\":[\"Selflessness vs. Clarity — High Strength\"],\"matrix_watchouts\":[\"Time vs. Collective — Development Area\",\"Knowledge vs. Application — Development Area\",\"Association vs. Openness — Development Area\",\"Fear vs. Responsibility — Development Area\",\"Dharma vs. Desire — Development Area\"],\"name\":\"a\",\"overall_T\":47.67231604032197,\"overall_raw\":41.47286821705426,\"participant_id\":3,\"pillars\":{\"A\":41.0377358490566,\"D\":43.61702127659574,\"E\":38.46153846153846,\"L\":47.95918367346939}}', '2026-01-04 06:52:14');
 
 -- --------------------------------------------------------
 
@@ -732,7 +918,11 @@ CREATE TABLE `sessions` (
 
 INSERT INTO `sessions` (`session_id`, `session_name`, `session_description`, `company_name`, `created_by`, `created_at`, `status`) VALUES
 (1, 'Test - 14/12/2025, 6:19:37 pm', 'Initial session for Test', 'Test', NULL, '2025-12-14 12:49:37', 'active'),
-(2, 'Trial - 14/12/2025, 10:53:40 pm', 'Initial session for Trial', 'Trial', NULL, '2025-12-14 17:23:40', 'active');
+(2, 'Trial - 14/12/2025, 10:53:40 pm', 'Initial session for Trial', 'Trial', NULL, '2025-12-14 17:23:40', 'active'),
+(3, 'Trial - 4/1/2026, 8:56:18 pm', 'Session for Trial', 'Trial', NULL, '2026-01-04 15:26:18', 'active'),
+(4, 'Test - 4/1/2026, 8:57:51 pm', 'Session for Test', 'Test', NULL, '2026-01-04 15:27:51', 'active'),
+(5, 'Test - 4/1/2026, 8:58:36 pm', 'Session for Test', 'Test', NULL, '2026-01-04 15:28:37', 'active'),
+(6, 'Trial - 4/1/2026, 9:10:39 pm', 'Session for Trial', 'Trial', NULL, '2026-01-04 15:40:39', 'active');
 
 -- --------------------------------------------------------
 
@@ -753,7 +943,11 @@ CREATE TABLE `session_links` (
 
 INSERT INTO `session_links` (`link_id`, `session_id`, `link_token`, `created_at`) VALUES
 (1, 1, '90d20594637b4e2cdee6f38a', '2025-12-14 12:49:37'),
-(2, 2, 'df5761428d7dbe3ae4ab3366', '2025-12-14 17:23:40');
+(2, 2, 'df5761428d7dbe3ae4ab3366', '2025-12-14 17:23:40'),
+(3, 3, '75de032919969c4d34d25ee6', '2026-01-04 15:26:18'),
+(4, 4, '979d903f7d397f177f8975b6', '2026-01-04 15:27:51'),
+(5, 5, '9bfee1232e18927449cad7fa', '2026-01-04 15:28:37'),
+(6, 6, '965cc6245c7359801dd3a22f', '2026-01-04 15:40:39');
 
 --
 -- Indexes for dumped tables
@@ -834,7 +1028,7 @@ ALTER TABLE `leadership_type`
 -- AUTO_INCREMENT for table `participants`
 --
 ALTER TABLE `participants`
-  MODIFY `participant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `participant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `quadrant-interpretation`
@@ -852,25 +1046,25 @@ ALTER TABLE `report_files`
 -- AUTO_INCREMENT for table `responses`
 --
 ALTER TABLE `responses`
-  MODIFY `response_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
+  MODIFY `response_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=388;
 
 --
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `result_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `result_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sessions`
 --
 ALTER TABLE `sessions`
-  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `session_links`
 --
 ALTER TABLE `session_links`
-  MODIFY `link_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `link_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
